@@ -1,9 +1,32 @@
+<!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <title>jmclisp.js</title>
+    <meta charset="utf-8"/>
+    <script src="jmclisp.js"></script>
+  </head>
   <body>
-    <p>jmclisp.js</a>
-    <script type="text/javascript" src="jmclisp.js"></script>
-    console.log(s_rep("(cdr '(a b c))"));
+    <form name="form1">
+      <textarea name="estring" value="1" cols="80" rows="24">
+((lambda (assoc k v) (assoc k v))
+ '(lambda (k v)
+    (cond ((eq v '()) nil)
+          ((eq (car (car v)) k)
+           (car v))
+          ('t (assoc k (cdr v)))))
+ 'Orange
+ '((Apple . 120) (Orange . 210) (Lemmon . 180)))
+</textarea>
+    </form>
+    <input type="button" onclick="rep()" value="eval">
+    <p><span id="span1"></span></p>
+    <script language="javascript" type="text/javascript">
+      function rep() {
+        estring = document.form1.estring.value;
+        eoutput = s_rep(estring);
+        document.getElementById("span1").textContent = eoutput;
+      }
+    </script>
   </body>
 </html>
 
