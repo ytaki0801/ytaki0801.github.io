@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PureLISP.js</title>
+    <meta charset="utf-8"/>
+    <script src="PureLISP.js"></script>
+  </head>
+  <body>
+    <form name="form1">
+      <textarea name="estrings" value="1" cols="80" rows="24">
+(def list (lambda x x))
+
+(def defun
+  (macro (name args body)
+    (list 'def name (list 'lambda args body))))
+
+(defun append2 (a b)
+  (cond ((eq a nil) b)
+        (t (cons (car a) (append2 (cdr a) b)))))
+
+(defun fib (n f1 f2)
+  (cond ((eq n '()) f1)
+        (t (fib (cdr n) f2 (append2 f1 f2)))))
+
+(def 10 '(p p p p p p p p p p))
+
+(def 0 nil)
+
+(def 1 '(p))
+
+(length (fib 10 0 1))
+</textarea>
+    </form>
+    <input type="button" onclick="rep()" value="eval">
+    <p><span id="span1"></span></p>
+    <script language="javascript" type="text/javascript">
+      function rep() {
+        var estrings = document.form1.estrings.value
+        estrings = estrings.replace(/\r\n|\r/g, "\n")
+        estrings = estrings.split('\n');
+        for (var i = 0, eoutput = ''; i < estrings.length; i++) {
+          if (estrings[i] != '') {
+            eoutput = eoutput + estrings[i];
+          } else {
+            document.getElementById("span1").textContent = s_rep(eoutput);
+            eoutput = '';
+            continue;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+
