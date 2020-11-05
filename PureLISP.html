@@ -12,15 +12,19 @@
 
 (def defun
   (macro (name args body)
-    (list 'def name (list 'lambda args body))))
+    (list 'def name
+          (list 'lambda args body))))
 
 (defun append2 (a b)
   (cond ((eq a nil) b)
-        (t (cons (car a) (append2 (cdr a) b)))))
+        (t (cons (car a)
+           (append2 (cdr a) b)))))
 
 (defun fib (n f1 f2)
   (cond ((eq n '()) f1)
-        (t (fib (cdr n) f2 (append2 f1 f2)))))
+        (t (fib (cdr n)
+           f2
+           (append2 f1 f2)))))
 
 (def 10 '(p p p p p p p p p p))
 
