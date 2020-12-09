@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <form name="form1">
+      <textarea name="string" value="1" cols="100"></textarea>
+    </form>
+    <input type="button" onclick="rep()" value="push">
+    <p><span id="span1"></span></p>
+    <script language="javascript" type="text/javascript">
+      function rep() {
+        string = document.form1.string.value;
+        string = (Function('return '+string))();
+        document.getElementById("span1").textContent = string
+      }
+    </script>
+  </body>
+</html>
