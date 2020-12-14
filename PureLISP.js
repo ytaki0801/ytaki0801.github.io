@@ -177,7 +177,7 @@ function s_apply(f, v) {
       if (s_null(lvars)) return s_eval(lbody, lenvs);
       else return s_eval(lbody, s_append(cons(cons(lvars, v), null), lenvs));
     else
-      return s_eval(lbody, s_pair(lvars, v));
+      return s_eval(lbody, s_append(s_pair(lvars, v), lenvs));
   }
 }
 
