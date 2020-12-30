@@ -72,7 +72,7 @@ function s_strcons(s) {
 }
 
 function s_string(s) {
-  if      (eq(s, null))  return '()';
+  if      (eq(s, null))  return 'nil';
   else if (eq(s, true))  return 't';
   else if (eq(s, false)) return 'nil';
   else if (atom(s))
