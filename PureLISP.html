@@ -7,7 +7,7 @@
   </head>
   <body>
     <form name="form1">
-      <textarea name="estrings" value="1" cols="80" rows="10">
+      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="10">
 (def list (lambda x x))
 
 (def defun
@@ -54,8 +54,7 @@
         }
       }
       function clt() {
-        var estrings = document.form1.estrings.value
-        estrings = '';
+        document.getElementById("secodes").value = '';
       }
     </script>
   </body>
