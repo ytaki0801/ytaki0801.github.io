@@ -7,7 +7,7 @@
   </head>
   <body>
     <form name="form1">
-      <textarea name="estrings" value="1" cols="80" rows="30">
+      <textarea name="estrings" value="1" cols="80" rows="10">
 (def list (lambda x x))
 
 (def defun
@@ -15,16 +15,16 @@
     (list 'def name
           (list 'lambda args body))))
 
-(defun append2 (a b)
+(defun func (a b)
   (cond ((eq a nil) b)
-        (t (cons (car a)
-           (append2 (cdr a) b)))))
+        (t (func (cdr a)
+                 (cons (car a) b)))))
 
 (defun fib (n f1 f2)
   (cond ((eq n '()) f1)
         (t (fib (cdr n)
            f2
-           (append2 f1 f2)))))
+           (func (func f1 nil) f2)))))
 
 (def 10 '(p p p p p p p p p p))
 
@@ -35,7 +35,8 @@
 (length (fib 10 0 1))
 </textarea>
     </form>
-    <input type="button" onclick="rep()" value="clear">
+    <input type="button" onclick="rep()" value="eval">
+    <input type="button" onclick="clt()" value="clear">
     <p><span id="span1"></span></p>
     <script language="javascript" type="text/javascript">
       function rep() {
@@ -51,6 +52,10 @@
             continue;
           }
         }
+      }
+      function clt() {
+        var estrings = document.form1.estrings.value
+        estrings = '';
       }
     </script>
   </body>
