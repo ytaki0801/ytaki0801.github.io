@@ -12,27 +12,14 @@
 
 (def defun
   (macro (name args body)
-    (list 'def name
-          (list 'lambda args body))))
+    (list 'def name (list 'lambda args body))))
 
 (defun func (a b)
   (cond ((eq a nil) b)
         (t (func (cdr a)
                  (cons (car a) b)))))
 
-(defun fib (n f1 f2)
-  (cond ((eq n '()) f1)
-        (t (fib (cdr n)
-           f2
-           (func (func f1 nil) f2)))))
-
-(def 10 '(p p p p p p p p p p))
-
-(def 0 nil)
-
-(def 1 '(p))
-
-(length (fib 10 0 1))
+(func (func '(a b c) nil) '(x y z))
 </textarea>
     </form>
     <input type="button" onclick="rep()" value="eval">
