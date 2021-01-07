@@ -7,17 +7,15 @@
   </head>
   <body>
     <form name="form1">
-      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="10">
+      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="15">
 (def list (lambda x x))
 
-(def defun
-  (macro (name args body)
-    (list 'def name (list 'lambda args body))))
+(def defun (macro (name args body)
+  (list 'def name (list 'lambda args body))))
 
 (defun func (a b)
   (cond ((eq a nil) b)
-        (t (func (cdr a)
-                 (cons (car a) b)))))
+        (t (func (cdr a) (cons (car a) b)))))
 
 (func (func '(a b c) nil) '(x y z))
 </textarea>
