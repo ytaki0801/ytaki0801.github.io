@@ -11,11 +11,13 @@
 (def list (lambda x x))
 
 (def defun (macro (name args body)
-  (list 'def name (list 'lambda args body))))
+  (list 'def name
+        (list 'lambda args body))))
 
 (defun func (a b)
   (cond ((eq a nil) b)
-        (t (func (cdr a) (cons (car a) b)))))
+        (t (func (cdr a)
+                 (cons (car a) b)))))
 
 (func (func '(a b c) nil) '(x y z))
 </textarea>
