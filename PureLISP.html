@@ -8,15 +8,19 @@
   <body>
     <a href="PureLISP.js">PureLISP.js</a>, with same specification of <a href="https://github.com/ytaki0801/PureLISP.sh" target="_top">PureLISP.sh</a>
     <form name="form1">
-      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="20">
+      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="30">
 ; Scheme-style sample code
 
 (def list (lambda x x))
 
 (def define (macro (name . body)
-  (cond ((atom name) (list 'def name (car body)))
-        (t (list 'def (car name)
-                 (list 'lambda (cdr name) (car body)))))))
+  (cond ((atom name)
+         (list 'def name (car body)))
+        (t
+         (list 'def (car name)
+               (list 'lambda
+                     (cdr name)
+                     (car body)))))))
 
 (define eq? eq)
 
@@ -24,7 +28,8 @@
 
 (define (f x y)
   (cond ((eq? x '()) y)
-        (else (f (cdr x) (cons (car x) y)))))
+        (else (f (cdr x)
+                 (cons (car x) y)))))
 
 (f (f '(a b) '()) '(x y y))
 </textarea>
