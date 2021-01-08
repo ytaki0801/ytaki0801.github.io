@@ -11,24 +11,16 @@
       <textarea id ="secodes" name="estrings" value="1" cols="80" rows="15">
 (def list (lambda x x))
 
-(def define
-  (macro (name . body)
-    (cond ((atom name)
-           (list 'def name (car body)))
-          (t
-           (list 'def (car name)
-                 (list 'lambda (cdr name)
-                               (car body)))))))
+(def defun (macro (name args body)
+  (list 'def name
+        (list 'lambda args body))))
 
-(define eq? eq)
+(defun func (a b)
+  (cond ((eq a nil) b)
+        (t (func (cdr a)
+                 (cons (car a) b)))))
 
-(define else t)
-
-(define (f x y)
-  (cond ((eq? x '()) y)
-        (else (f (cdr x) (cons (car x) y)))))
-
-(f (f '(a b c) '()) '(x y z))
+(func (func '(a b c) nil) '(x y z))
 </textarea>
     </form>
     <input type="button" onclick="rep()" value="eval">
