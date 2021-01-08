@@ -1,1 +1,1 @@
-# officialsite
+# TAKIZAWA Yozo official site contents
