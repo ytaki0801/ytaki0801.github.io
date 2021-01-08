@@ -8,17 +8,11 @@
   <body>
     <a href="PureLISP.js">PureLISP.js</a>, with same specification of <a href="https://github.com/ytaki0801/PureLISP.sh" target="_top">PureLISP.sh</a>
     <form name="form1">
-      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="15">
-(def list (lambda x x))
-
-(def define
-  (macro (name . body)
-    (cond ((atom name)
-           (list 'def name (car body)))
-          (t
-           (list 'def (car name)
-                 (list 'lambda (cdr name)
-                               (car body)))))))
+      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="20">
+(def define (macro (name . body)
+  (cond ((atom name) (list 'def name (car body)))
+        (t (list 'def (car name)
+                 (list 'lambda (cdr name) (car body)))))))
 
 (define eq? eq)
 
@@ -28,7 +22,7 @@
   (cond ((eq? x '()) y)
         (else (f (cdr x) (cons (car x) y)))))
 
-(f (f '(a b c) '()) '(x y z))
+(f (f '(a b) '()) '(x y y))
 </textarea>
     </form>
     <input type="button" onclick="rep()" value="eval">
