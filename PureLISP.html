@@ -8,7 +8,7 @@
   <body>
     <a href="PureLISP.js">PureLISP.js</a>, with same specification of <a href="https://github.com/ytaki0801/PureLISP.sh" target="_top">PureLISP.sh</a>
     <form name="form1">
-      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="30">
+      <textarea id ="secodes" name="estrings" value="1" cols="80" rows="35">
 ; Scheme- and Gauche-style sample code
 
 (def list (lambda x x))
@@ -36,7 +36,10 @@
         (else (f (cdr x)
                  (cons (car x) y)))))
 
-(f (f '(a b c) '()) '(x y y))
+(define-macro (g x y)
+  (list 'f (list 'f x '(quote ())) y))
+
+(g '(x y z) '(a b c))
 </textarea>
     </form>
     <input type="button" onclick="rep()" value="eval">
