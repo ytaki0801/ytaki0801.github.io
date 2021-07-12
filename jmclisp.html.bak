@@ -8,12 +8,14 @@
   <body>
     <form name="form1">
       <textarea name="estring" value="1" cols="80" rows="15">
-((lambda (f rev x) (rev x))
-'(lambda (x y)
-   (cond ((eq x nil) y)
-         ('t (f (cdr x) (cons (car x) y)))))
-'(lambda (x) (f x nil))
-'(a b c d e))
+((lambda (assoc k v) (assoc k v))
+ '(lambda (k v)
+    (cond ((eq v '()) nil)
+          ((eq (car (car v)) k)
+           (car v))
+          ('t (assoc k (cdr v)))))
+ 'Orange
+ '((Apple . 120) (Orange . 210) (Lemon . 180)))
 </textarea>
     </form>
     <input type="button" onclick="rep()" value="eval">
