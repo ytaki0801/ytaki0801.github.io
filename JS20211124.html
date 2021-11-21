@@ -8,9 +8,20 @@
     <script language="javascript" type="text/javascript">
       function rep() {
         string = document.form1.string.value;
-        string = (Function('return '+string))();
-        document.getElementById("span1").textContent = string
+        string = string.replace(/\r\n|\r/g, "\n");
+        string = string.split("\n");
+        for (let i = 0, eoutput = ""; i < string.length; i++) {
+          if (string[i] != "") {
+            eoutput = eoutput + string[i];
+          } else {
+            document.getElementById("span1").textContent
+            = (Function('return '+eoutput))();
+            eoutput = "";
+            continue;
+          }
+        }
       }
     </script>
   </body>
 </html>
+
