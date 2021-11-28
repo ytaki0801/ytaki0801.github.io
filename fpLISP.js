@@ -14,6 +14,10 @@ function cdr(s) { return s[1]; }
 function eq(s1, s2) {
   if ((s1 === false && s2 === null) || (s1 === null && s2 === false))
     return true;
+  else if ((s1 === false && s2 === "nil") || (s1 === "nil" && s2 === false))
+    return true;
+  else if ((s1 === null && s2 === "nil") || (s1 === "nil" && s2 === null))
+    return true;
   else
     return s1 === s2;
 }
@@ -64,7 +68,7 @@ function fp_read(s) { return fp_syn(fp_lex(s)); }
 function fp_strcons(s) {
   let sa_r = fp_string(car(s));
   let sd = cdr(s);
-  if (eq(sd, null)) {
+  if (fp_null(sd)) {
     return sa_r;
   } else if (atom(sd)) {
     return sa_r + " . " + sd;
@@ -74,7 +78,7 @@ function fp_strcons(s) {
 }
 
 function fp_string(s) {
-  if      (eq(s, null))  return "()";
+  if      (eq(s, null))  return "nil";
   else if (eq(s, true))  return "t";
   else if (eq(s, false)) return "nil";
   else if (atom(s))
@@ -134,8 +138,9 @@ function fp_eargs(v, a) {
 
 function fp_eval(e, a) {
   if (atom(e)) return fp_lookup(e, a);
-  else if (eq(car(e), "quote")) return cadr(e);
-  else if (eq(car(e), "if")) {
+  else if (eq(car(e), "quote")) {
+      return cadr(e);
+  } else if (eq(car(e), "if")) {
     if (fp_eval(cadr(e), a))
       return fp_eval(caddr(e), a);
     else
