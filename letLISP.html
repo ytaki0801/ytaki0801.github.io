@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>letLISP.js</title>
+    <meta charset="utf-8"/>
+
+<script language="javascript" type="text/javascript">
+//
+// letLISP.js: letLISP in JavaScript
+//
+// (C) 2022 TAKIZAWA Yozo
+// This code is licensed under CC0.
+// https://creativecommons.org/publicdomain/zero/1.0/
+//
+
+// Basic functions for conscell operations:
+// cons, car, cdr, eq, atom
+function cons(x, y) { return Object.freeze([x, y]); }
+function car(s) { return s[0]; }
+function cdr(s) { return s[1]; }
+function eq(s1, s2) {
+  if ((s1 === false && s2 === null) ||
+      (s1 === null && s2 === false))
+    return true;
+  else if ((s1 === false && s2 === "nil") ||
+           (s1 === "nil" && s2 === false))
+    return true;
+  else if ((s1 === null && s2 === "nil") ||
+           (s1 === "nil" && s2 === null))
+    return true;
+  else
+    return s1 === s2;
+}
+function atom(s) {
+  return typeof s == "string" ||
+         eq(s, null) || eq(s, true) || eq(s, false);
+}
+function pair(s) { return !atom(s); }
+
+// S-expression input: lread
+function llex(s) {
+  s = s.replace(/(\(|\)|\'|\,)/g, " $1 ");
+  return s.split(/\s+/).filter(x => x != "");
+}
+function lsyn(s) {
+  function quote(x, s) {
+    if (s.length != 0 && s.slice(-1)[0] == "\'") {
+      s.pop(); return cons("quote", cons(x, null));
+    } else return x
+  }
+  let t = s.pop();
+  if (t == ")") {
+    let r = null;
+    while (s.slice(-1)[0] != "(")
+      r = cons(lsyn(s), r);
+    s.pop();
+    return quote(r, s);
+  } else return quote(t, s);
+}
+function lread(s) { return lsyn(llex(s)); }
+
+// S-expression output: lstring
+function lstrcons(s) {
+  let sa_r = lstring(car(s));
+  let sd = cdr(s);
+  if (lnull(sd)) return sa_r;
+  else return sa_r + " " + lstrcons(sd);
+}
+function lstring(s) {
+  if (eq(s, null))  return "()";
+  else if (atom(s)) return s;
+  else return "(" + lstrcons(s) + ")";
+}
+
+// The evaluator: leval and utility functions
+function caar(x) { return car(car(x)); }
+function cadr(x) { return car(cdr(x)); }
+function cdar(x) { return cdr(car(x)); }
+function cadar(x) { return car(cdr(car(x))); }
+function caddr(x) { return car(cdr(cdr(x))); }
+function cadddr(x) { return car(cdr(cdr(cdr(x)))); }
+function lnull(x) { return eq(x, null); }
+function lappend(x, y) {
+  if (lnull(x)) return y;
+  else return cons(car(x), lappend(cdr(x), y));
+}
+function lpair(x, y) {
+  if (lnull(x) || lnull(y)) return null;
+  else if (!atom(x) && !atom(y))
+    return cons(cons(car(x), car(y)),
+                lpair(cdr(x), cdr(y)));
+  else return null;
+}
+function lassq(x, y) {
+  if (lnull(y)) return null;
+  else if (eq(caar(y), x)) return cdar(y);
+  else return lassq(x, cdr(y));
+}
+const lbuiltins = {
+  "cons" : (v) => cons(car(v), cadr(v)),
+  "car"  : (v) => car(car(v)),
+  "cdr"  : (v) => cdr(car(v)),
+  "eq?"  : (v) => eq(car(v), cadr(v)),
+  "pair?": (v) => pair(car(v)),
+  "+"    : (v) => String(Number(car(v)) + Number(cadr(v))),
+  "-"    : (v) => String(Number(car(v)) - Number(cadr(v))),
+  "*"    : (v) => String(Number(car(v)) * Number(cadr(v))),
+  "quotient" : (v) => String(Number(car(v)) / Number(cadr(v)) | 0),
+  "remainder": (v) => String(Number(car(v)) % Number(cadr(v))),
+  "<"    : (v) => Number(car(v)) < Number(cadr(v)),
+  "="    : (v) => Number(car(v)) == Number(cadr(v)),
+  "read" : ()  => lread(document.form2.rstrings.value),
+  "write": (v) => car(v)
+};
+function lapply(f, v, a) {
+  if (atom(f)) return lbuiltins[f](v);
+  else {
+    const lvars = cadr(f);
+    const lbody = caddr(f);
+    return leval(lbody, lappend(lpair(lvars, v), a));
+  }
+}
+function let_syntax(e, a) {
+  let vs = null, rs = null, v = caddr(e);
+  while (v != null) {
+    vs = lappend(vs, cons(caar(v), null));
+    rs = lappend(rs, cons(cadar(v), null));
+    v = cdr(v);
+  }
+  let s1 = cons(cadr(e), null);
+  let s3 = cons(cadddr(e), null);
+  let r1 = cons("fn", cons(s1, null));
+  let r2 = cons(lappend(s1, rs), null);
+  let r3 = cons("fn", cons(vs, s3));
+  let r4 = cons(r3, null);
+  let r = cons(lappend(r1, r2), r4);
+  return leval(r, a);
+}
+function llookup(t, a) {
+  if (Object.keys(lbuiltins).includes(t) || !isNaN(t)) return t;
+  else return lassq(t, a);
+}
+function leargs(v, a) {
+  if (lnull(v)) return null;
+  else return cons(leval(car(v), a), leargs(cdr(v), a));
+}
+function leval(e, a) {
+  if (atom(e)) return llookup(e, a);
+  else if (eq(car(e), "quote")) {
+      return cadr(e);
+  } else if (eq(car(e), "if")) {
+    if (leval(cadr(e), a))
+      return leval(caddr(e), a);
+    else
+      return leval(cadddr(e), a);
+  } else if (eq(car(e), "lambda"))
+    return cons(car(e), cons(cadr(e), cons(caddr(e), cons(a, null))));
+  else if (eq(car(e), "fn")) return e;
+  else if (eq(car(e), "let")) return let_syntax(e, a);
+  else return lapply(leval(car(e), a), leargs(cdr(e), a), a);
+}
+
+// REP (no Loop): lrep
+function lrep(e) {
+  return lstring(leval(lread(e), lread("()")));
+}
+</script>
+
+  </head>
+  <body>
+    letLISP.js, one of
+    <a href="https://github.com/ytaki0801/letLISP" target="_top">letLISP</a>
+    implementations<br>
+    [LISP code]<br>
+    <form name="form1">
+      <textarea id ="secodes" name="estrings" value="1" cols="60" rows="15">
+(let rev ((a '(a b c d e)) (b '()))
+  (if (eq? a '()) b
+      (rev (cdr a) (cons (car a) b))))
+</textarea>
+    </form>
+    [read code]<br>
+    <form name="form2">
+      <textarea id ="readcodes" name="rstrings" value="1" cols="60" rows="1">
+</textarea>
+    </form>
+    <input type="button" onclick="rep()" value="eval">
+    <input type="button" onclick="clt()" value="clear">
+    <p>Result: <span id="span1"></span></p>
+    <script language="javascript" type="text/javascript">
+      function rep() {
+        let estrings = document.form1.estrings.value + "\n\n";
+        estrings = estrings.replace(/\r\n|\r/g, "\n");
+        estrings = estrings.split("\n");
+        for (let i = 0, eoutput = ""; i < estrings.length; i++) {
+          if (estrings[i] != "") {
+            eoutput = eoutput + estrings[i];
+          } else {
+            document.getElementById("span1").textContent = lrep(eoutput);
+            eoutput = "";
+            continue;
+          }
+        }
+      }
+      function clt() {
+        document.getElementById("secodes").value = "";
+      }
+    </script>
+    <hr>
+    Copyright (C) 2022 <a href="http://nbk.bz/">TAKIZAWA Yozo</a>
+  </body>
+</html>
+
