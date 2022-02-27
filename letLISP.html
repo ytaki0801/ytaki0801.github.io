@@ -13,88 +13,159 @@
 // https://creativecommons.org/publicdomain/zero/1.0/
 //
 
-// Basic functions for conscell operations:
-// cons, car, cdr, eq, atom
-function cons(x, y) { return Object.freeze([x, y]); }
+// Basic functions for list processing
+function cons(x, y) {
+  return [x].concat(y);
+}
 function car(s) { return s[0]; }
-function cdr(s) { return s[1]; }
+function cdr(s) { return s.slice(1); }
+function lnull(s) {
+  const r = Array.isArray(s);
+  return r && s.length == 0;
+}
+function atom(s) {
+  const r = typeof s == "string";
+  return r || lnull(s);
+}
 function eq(s1, s2) {
-  if ((s1 === false && s2 === null) ||
-      (s1 === null && s2 === false))
+  if (!atom(s1) || !atom(s2))
+    return false;
+  else if (lnull(s1) && lnull(s2))
     return true;
-  else if ((s1 === false && s2 === "nil") ||
-           (s1 === "nil" && s2 === false))
-    return true;
-  else if ((s1 === null && s2 === "nil") ||
-           (s1 === "nil" && s2 === null))
-    return true;
+  else if (lnull(s1) || lnull(s2))
+    return false;
   else
     return s1 === s2;
 }
-function atom(s) {
-  return typeof s == "string" ||
-         eq(s, null) || eq(s, true) || eq(s, false);
-}
 function pair(s) { return !atom(s); }
 
-// S-expression input: lread
-function llex(s) {
-  s = s.replace(/(\(|\)|\'|\,)/g, " $1 ");
-  return s.split(/\s+/).filter(x => x != "");
+// S-expression input: sread
+let tokens, tp;
+function slex(s) {
+  s1 = " $1 ";
+  s = s.replace(/(\(|\)|\'|\,)/g, s1);
+  s = s.split(/\s+/).filter(x=>x!="");
+  tokens = s;
 }
-function lsyn(s) {
-  function quote(x, s) {
-    if (s.length != 0 && s.slice(-1)[0] == "\'") {
-      s.pop(); return cons("quote", cons(x, null));
-    } else return x
+function get_token() {
+  tp++; return tokens[tp - 1];
+}
+function slist() {
+  const t = get_token();
+  if        (t == ")") {
+    return [];
+  } else if (t == "(") {
+    const h = slist();
+    return cons(h, slist());
+  } else if (t == "'") {
+    const h = cons("quote", [ssyn()]);
+    return cons(h, slist());
+  } else {
+    return cons(t, slist());
   }
-  let t = s.pop();
-  if (t == ")") {
-    let r = null;
-    while (s.slice(-1)[0] != "(")
-      r = cons(lsyn(s), r);
-    s.pop();
-    return quote(r, s);
-  } else return quote(t, s);
 }
-function lread(s) { return lsyn(llex(s)); }
+function ssyn() {
+  const t = get_token();
+  if (t == "(")
+    return slist();
+  else if (t == "'")
+    return cons("quote", [ssyn()]);
+  else return t;
+}
+function sread(s) {
+  tokens = [], tp = 0; slex(s);
+  return ssyn();
+}
 
-// S-expression output: lstring
-function lstrcons(s) {
-  let sa_r = lstring(car(s));
-  let sd = cdr(s);
+// S-expression output: swrite
+function swlist(x) {
+  let sa_r = swrite(car(x));
+  let sd = cdr(x);
   if (lnull(sd)) return sa_r;
-  else return sa_r + " " + lstrcons(sd);
+  else return sa_r + " " + swlist(sd);
 }
-function lstring(s) {
-  if (eq(s, null))  return "()";
-  else if (atom(s)) return s;
-  else return "(" + lstrcons(s) + ")";
+function swrite(s) {
+  if (lnull(s)) return "()";
+  else if (pair(s))
+    return "(" + swlist(s) + ")";
+  else return s;
 }
 
-// The evaluator: leval and utility functions
+// The evaluator: eval and utilities
 function caar(x) { return car(car(x)); }
 function cadr(x) { return car(cdr(x)); }
-function cdar(x) { return cdr(car(x)); }
-function cadar(x) { return car(cdr(car(x))); }
-function caddr(x) { return car(cdr(cdr(x))); }
-function cadddr(x) { return car(cdr(cdr(cdr(x)))); }
-function lnull(x) { return eq(x, null); }
-function lappend(x, y) {
+function cddr(x) { return cdr(cdr(x)); }
+function cadar(x) {
+  return car(cdr(car(x)));
+}
+function caddr(x) {
+  return car(cdr(cdr(x)));
+}
+function cadddr(x) {
+  return car(cdr(cdr(cdr(x))));
+}
+function append(x, y) {
   if (lnull(x)) return y;
-  else return cons(car(x), lappend(cdr(x), y));
+  else {
+    r = append(cdr(x), y);
+    return cons(car(x), r);
+  }
 }
-function lpair(x, y) {
-  if (lnull(x) || lnull(y)) return null;
-  else if (!atom(x) && !atom(y))
-    return cons(cons(car(x), car(y)),
-                lpair(cdr(x), cdr(y)));
-  else return null;
+function plis(a, b) {
+  if (lnull(a) || lnull(b)) return [];
+  else {
+    let r = plis(cdr(a), cdr(b));
+    r = cons(car(a), cons(car(b), r));
+    return r;
+  }
 }
-function lassq(x, y) {
-  if (lnull(y)) return null;
-  else if (eq(caar(y), x)) return cdar(y);
-  else return lassq(x, cdr(y));
+function prop(x, y) {
+  if (lnull(y))
+    return [];
+  else if (eq(x, car(y)))
+    return cadr(y);
+  else
+    return prop(x, cddr(y));
+}
+
+function add(v) {
+  const a1 = Number(car(v));
+  const a2 = Number(cadr(v));
+  return String(a1 + a2);
+}
+function sub(v) {
+  const a1 = Number(car(v));
+  const a2 = Number(cadr(v));
+  return String(a1 - a2);
+}
+function mul(v) {
+  const a1 = Number(car(v));
+  const a2 = Number(cadr(v));
+  return String(a1 * a2);
+}
+function quo(v) {
+  const a1 = Number(car(v));
+  const a2 = Number(cadr(v));
+  return String(a1 / a2);
+}
+function rem(v) {
+  const a1 = Number(car(v));
+  const a2 = Number(cadr(v));
+  return String(a1 % a2);
+}
+function ltn(v) {
+  const a1 = Number(car(v));
+  const a2 = Number(cadr(v));
+  return a1 < a2;
+}
+function eqn(v) {
+  const a1 = Number(car(v));
+  const a2 = Number(cadr(v));
+  return a1 == a2;
+}
+function rdn() {
+  const rc = document.form2.rstr.value;
+  return sread(rc);
 }
 const lbuiltins = {
   "cons" : (v) => cons(car(v), cadr(v)),
@@ -102,67 +173,71 @@ const lbuiltins = {
   "cdr"  : (v) => cdr(car(v)),
   "eq?"  : (v) => eq(car(v), cadr(v)),
   "pair?": (v) => pair(car(v)),
-  "+"    : (v) => String(Number(car(v)) + Number(cadr(v))),
-  "-"    : (v) => String(Number(car(v)) - Number(cadr(v))),
-  "*"    : (v) => String(Number(car(v)) * Number(cadr(v))),
-  "quotient" : (v) => String(Number(car(v)) / Number(cadr(v)) | 0),
-  "remainder": (v) => String(Number(car(v)) % Number(cadr(v))),
-  "<"    : (v) => Number(car(v)) < Number(cadr(v)),
-  "="    : (v) => Number(car(v)) == Number(cadr(v)),
-  "read" : ()  => lread(document.form2.rstrings.value),
+  "+"    : (v) => add(v),
+  "-"    : (v) => sub(v),
+  "*"    : (v) => mul(v),
+  "quotient" : (v) => quo(v) | 0,
+  "remainder": (v) => rem(v),
+  "<"    : (v) => ltn(v),
+  "="    : (v) => eqn(v),
+  "read" : ()  => rdn(),
   "write": (v) => car(v)
 };
 function lapply(f, v, a) {
-  if (atom(f)) return lbuiltins[f](v);
+  if (atom(f))
+    return lbuiltins[f](v);
   else {
     const lvars = cadr(f);
     const lbody = caddr(f);
-    return leval(lbody, lappend(lpair(lvars, v), a));
+    va = plis(lvars, v);
+    return leval(lbody, append(va, a));
   }
 }
 function let_syntax(e, a) {
-  let vs = null, rs = null, v = caddr(e);
-  while (v != null) {
-    vs = lappend(vs, cons(caar(v), null));
-    rs = lappend(rs, cons(cadar(v), null));
-    v = cdr(v);
-  }
-  let s1 = cons(cadr(e), null);
-  let s3 = cons(cadddr(e), null);
-  let r1 = cons("fn", cons(s1, null));
-  let r2 = cons(lappend(s1, rs), null);
-  let r3 = cons("fn", cons(vs, s3));
-  let r4 = cons(r3, null);
-  let r = cons(lappend(r1, r2), r4);
+  let vs = e[2].map(x=>car(x));
+  let rs = e[2].map(x=>cadr(x));
+  let r = [["fn", [e[1]],
+           [e[1]].concat(rs)],
+           ["fn", vs, e[3]]];
   return leval(r, a);
 }
 function llookup(t, a) {
-  if (Object.keys(lbuiltins).includes(t) || !isNaN(t)) return t;
-  else return lassq(t, a);
+  if (Object.keys(lbuiltins).includes(t)
+      || !isNaN(t)) return t;
+  else return prop(t, a);
 }
 function leargs(v, a) {
-  if (lnull(v)) return null;
-  else return cons(leval(car(v), a), leargs(cdr(v), a));
+  if (lnull(v)) return [];
+  else {
+    r = leval(car(v), a);
+    return cons(r, leargs(cdr(v), a));
+  }
 }
 function leval(e, a) {
-  if (atom(e)) return llookup(e, a);
-  else if (eq(car(e), "quote")) {
+  if (atom(e))
+    return llookup(e, a);
+  else if (eq(car(e), "quote"))
       return cadr(e);
-  } else if (eq(car(e), "if")) {
+  else if (eq(car(e), "if")) {
     if (leval(cadr(e), a))
       return leval(caddr(e), a);
     else
       return leval(cadddr(e), a);
-  } else if (eq(car(e), "lambda"))
-    return cons(car(e), cons(cadr(e), cons(caddr(e), cons(a, null))));
-  else if (eq(car(e), "fn")) return e;
-  else if (eq(car(e), "let")) return let_syntax(e, a);
-  else return lapply(leval(car(e), a), leargs(cdr(e), a), a);
+  } else if (eq(car(e), "fn"))
+    return e;
+  else if (eq(car(e), "let"))
+    return let_syntax(e, a);
+  else {
+    const f = leval(car(e), a);
+    const v = leargs(cdr(e), a);
+    return lapply(f, v, a);
+  }
 }
 
 // REP (no Loop): lrep
 function lrep(e) {
-  return lstring(leval(lread(e), lread("()")));
+  const sc = sread(e), se = sread("()");
+  return swrite(leval(sc, se));
 }
 </script>
 
@@ -173,7 +248,7 @@ function lrep(e) {
     implementations<br>
     [LISP code]<br>
     <form name="form1">
-      <textarea id ="secodes" name="estrings" value="1" cols="60" rows="15">
+      <textarea id ="secodes" name="estr" value="1" cols="60" rows="15">
 (let rev ((a '(a b c d e)) (b '()))
   (if (eq? a '()) b
       (rev (cdr a) (cons (car a) b))))
@@ -181,7 +256,7 @@ function lrep(e) {
     </form>
     [read code]<br>
     <form name="form2">
-      <textarea id ="readcodes" name="rstrings" value="1" cols="60" rows="1">
+      <textarea id ="readcodes" name="rstr" value="1" cols="60" rows="1">
 </textarea>
     </form>
     <input type="button" onclick="rep()" value="eval">
@@ -189,12 +264,12 @@ function lrep(e) {
     <p>Result: <span id="span1"></span></p>
     <script language="javascript" type="text/javascript">
       function rep() {
-        let estrings = document.form1.estrings.value + "\n\n";
-        estrings = estrings.replace(/\r\n|\r/g, "\n");
-        estrings = estrings.split("\n");
-        for (let i = 0, eoutput = ""; i < estrings.length; i++) {
-          if (estrings[i] != "") {
-            eoutput = eoutput + estrings[i];
+        let estr = document.form1.estr.value + "\n\n";
+        estr = estr.replace(/\r\n|\r/g, "\n");
+        estr = estr.split("\n");
+        for (let i = 0, eoutput = ""; i < estr.length; i++) {
+          if (estr[i] != "") {
+            eoutput = eoutput + estr[i];
           } else {
             document.getElementById("span1").textContent = lrep(eoutput);
             eoutput = "";
