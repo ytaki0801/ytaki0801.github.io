@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <form name="form1">
+      <textarea name="string" value="1" cols="80" rows="15">
+small = (s) => s.length <= 1 ? [] : s[s.length-1]<s[0] ? small(s.slice(0,-1)).concat(s[s.length-1]) : small(s.slice(0,-1))
+
+large = (s) => s.length <= 1 ? [] : s[s.length-1]>=s[0] ? large(s.slice(0,-1)).concat(s[s.length-1]) : large(s.slice(0,-1))
+
+q = (s) => s.length == 0 ? [] : q(small(s)).concat(s[0]).concat(q(large(s)))
+
+q([6,1,7,2,9,3,5,4])
+</textarea>
+    </form>
+    <input type="button" onclick="rep()" value="run">
+    <p><span id="span1"></span></p>
+    <script language="javascript" type="text/javascript">
+      function rep() {
+        string = document.form1.string.value;
+        string = string.replace(/\r\n|\r/g, "\n");
+        string = string.split("\n");
+        for (let i = 0, eoutput = ""; i < string.length; i++) {
+          if (string[i] != "") {
+            eoutput = eoutput + string[i];
+          } else {
+            document.getElementById("span1").textContent
+            = (Function('return '+eoutput))();
+            eoutput = "";
+            continue;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+
