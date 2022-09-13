@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+
+let controller0;
+
+function updateScreen() {
+    if (navigator.getGamepads()[0] != controller0) {
+        controller0 = navigator.getGamepads()[0];
+        updateScreen();
+    }
+
+    let buttons_text = "";
+    for (let i = 0; i < controller0.buttons.length; i++) {
+        if (controller0.buttons[i].pressed) { buttons_text += i + " "; }
+    }
+    document.getElementById("gamepadbuttons").textContent = buttons_text;
+
+    let axes_text = "";
+    for (let i = 0; i < controller0.axes.length; i++) {
+        axes_text += "axis" + i + ":" + controller0.axes[i].toFixed(2) + " ";
+    }
+    document.getElementById("gamepadaxes").textContent = axes_text;
+
+    window.requestAnimationFrame(updateScreen);
+}
+
+window.addEventListener("gamepadconnected", function(e) {
+    controller0 = e.gamepad;
+    document.getElementById("gamepadid").textContent = controller0.id;
+    updateScreen();
+});
+
+window.addEventListener("gamepaddisconnected", function(e) {
+    delete e.gamepad;
+    document.getElementById("gamepadid").textContent = "";
+    document.getElementById("gamepadbuttons").textContent = "";
+    document.getElementById("gamepadaxes").textContent = "";
+});
+
+    </script>
+  </head>
+  <body>
+
+[Connect a gamepad and press any button or move any stick]<br>
+Gamepad ID: <span id="gamepadid"></span><br>
+Buttons: <span id="gamepadbuttons"></span><br>
+Axes: <span id="gamepadaxes"></span><br>
+
+  </body>
+</html>
