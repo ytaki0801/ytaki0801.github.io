@@ -15,10 +15,10 @@ function draw() {
   let dx = 30.0, dy = 45.0, px = 0.0, py = 0.0;
 
   gl.onupdate = function(s) {
-    if      (GL.keys.W) py += 0.5;
-    else if (GL.keys.A) px -= 0.5;
-    else if (GL.keys.S) py -= 0.5;
-    else if (GL.keys.D) px += 0.5;
+    if      (GL.keys.W) py += 0.1;
+    else if (GL.keys.A) px -= 0.1;
+    else if (GL.keys.S) py -= 0.1;
+    else if (GL.keys.D) px += 0.1;
   };
 
   gl.onmousemove = function(e) {
