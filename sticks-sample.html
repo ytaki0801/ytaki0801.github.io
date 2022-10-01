@@ -17,6 +17,16 @@ function draw() {
   let dx = 30.0, dy = 45.0, px = 0.0, py = 0.0;
 
   gl.onupdate = function(s) {
+    if (controller0 != null) {
+      if (navigator.getGamepads()[0] != controller0) {
+        controller0 = navigator.getGamepads()[0];
+      }
+      dx += controller0.axes[3] * 5.0;
+      dy += controller0.axes[2] * 5.0;
+      py -= controller0.axes[1] * 0.1;
+      px += controller0.axes[0] * 0.1;
+    }
+
     if      (GL.keys.W) py += 0.1;
     else if (GL.keys.A) px -= 0.1;
     else if (GL.keys.S) py -= 0.1;
@@ -25,8 +35,8 @@ function draw() {
 
   gl.onmousemove = function(e) {
     if (e.dragging) {
-      dx += e.deltaY + controller0.axes[2];
-      dy += e.deltaX + controller0.axes[3];
+      dx += e.deltaY;
+      dy += e.deltaX;
       gl.ondraw();
     }
   };
