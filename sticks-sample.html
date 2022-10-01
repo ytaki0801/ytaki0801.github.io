@@ -12,14 +12,13 @@ obj = [[[1.0,0.0,0.0],[[0.0,0.0,0.0],[1.0,0.0,0.0],[1.0,1.0,0.0]]],
 
 function draw() {
   const gl = GL.create();
-  let dx = 30, dy = 45;
+  let dx = 30.0, dy = 45.0, px = 0.0, py = 0.0;
 
   gl.onupdate = function(s) {
-    let dx = 0, dy = 0;
-    if      (GL.keys.UP)    dx += 5;
-    else if (GL.keys.DOWN)  dx -= 5;
-    else if (GL.keys.LEFT)  dy += 5;
-    else if (GL.keys.RIGHT) dy -= 5;
+    if      (GL.keys.W) py += 0.5;
+    else if (GL.keys.A) px -= 0.5;
+    else if (GL.keys.S) py -= 0.5;
+    else if (GL.keys.D) px += 0.5;
   };
 
   gl.onmousemove = function(e) {
@@ -35,7 +34,7 @@ function draw() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     gl.loadIdentity();
-    gl.translate(0.0, 0.0, -5.0);
+    gl.translate(px, py, -5.0);
     gl.rotate(dx, 1.0, 0.0, 0.0);
     gl.rotate(dy, 0.0, 1.0, 0.0);
 
