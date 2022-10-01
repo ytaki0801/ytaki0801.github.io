@@ -10,6 +10,8 @@ obj = [[[1.0,0.0,0.0],[[0.0,0.0,0.0],[1.0,0.0,0.0],[1.0,1.0,0.0]]],
        [[0.0,1.0,0.0],[[0.0,1.0,1.0],[0.0,1.0,0.0],[0.0,0.0,0.0]]],
        -1];
 
+let controller0;
+
 function draw() {
   const gl = GL.create();
   let dx = 30.0, dy = 45.0, px = 0.0, py = 0.0;
@@ -23,8 +25,8 @@ function draw() {
 
   gl.onmousemove = function(e) {
     if (e.dragging) {
-      dx += e.deltaY;
-      dy += e.deltaX;
+      dx += e.deltaY + controller0.axes[2];
+      dy += e.deltaX + controller0.axes[3];
       gl.ondraw();
     }
   };
@@ -55,6 +57,13 @@ function draw() {
   gl.animate();
   gl.enable(gl.DEPTH_TEST);
 }
+
+window.addEventListener("gamepadconnected", function(e) {
+  controller0 = e.gamepad;
+});
+window.addEventListener("gamepaddisconnected", function(e) {
+  delete e.gamepad;
+});
 
     </script>
   </head>
