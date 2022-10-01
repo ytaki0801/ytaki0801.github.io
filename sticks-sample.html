@@ -12,7 +12,7 @@ obj = [[[1.0,0.0,0.0],[[0.0,0.0,0.0],[1.0,0.0,0.0],[1.0,1.0,0.0]]],
 
 function draw() {
   const gl = GL.create();
-  let angleX = 30, angleY = 45;
+  let dx = 30, dy = 45;
 
   gl.onupdate = function(s) {
     let dx = 0, dy = 0;
@@ -20,14 +20,12 @@ function draw() {
     else if (GL.keys.DOWN)  dx -= 5;
     else if (GL.keys.LEFT)  dy += 5;
     else if (GL.keys.RIGHT) dy -= 5;
-    angleX += dx;
-    angleY += dy;
   };
 
   gl.onmousemove = function(e) {
     if (e.dragging) {
-      angleX += e.deltaY;
-      angleY += e.deltaX;
+      dx += e.deltaY;
+      dy += e.deltaX;
       gl.ondraw();
     }
   };
@@ -38,8 +36,8 @@ function draw() {
 
     gl.loadIdentity();
     gl.translate(0.0, 0.0, -5.0);
-    gl.rotate(angleX, 1.0, 0.0, 0.0);
-    gl.rotate(angleY, 0.0, 1.0, 0.0);
+    gl.rotate(dx, 1.0, 0.0, 0.0);
+    gl.rotate(dy, 0.0, 1.0, 0.0);
 
     let i = 0, t, c, vs;
     gl.begin(gl.TRIANGLES);
