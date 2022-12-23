@@ -12,7 +12,7 @@ function drawcell(n, ny, c, ct) {
 }
 
 async function draw() {
-  const canvas = document.getElementById('sample');
+  const canvas = document.getElementById('w23tm');
   const context = canvas.getContext('2d');
 
   delta = [[[1,1, 1], [0,2,-1], [0,1,-1]],
@@ -42,8 +42,8 @@ async function draw() {
 <!-- body onload="draw();" -->
 <body>
   <center>
-    <form><input type="button" onclick="draw()" value="start"></form>
-    <canvas id="sample" width="400" height="2000"></canvas>
+    <input type="button" onclick="draw();" value="start">
+    <canvas id="w23tm" width="400" height="2000"></canvas>
   </center>
 </body>
 
