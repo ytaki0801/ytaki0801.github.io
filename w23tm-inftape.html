@@ -17,8 +17,8 @@ async function draw() {
   const canvas = document.getElementById("w23tm");
   const context = canvas.getContext("2d");
 
-  delta = [[[1,1, 1], [0,2,-1], [0,1,-1]],
-           [[0,2,-1], [1,2, 1], [0,0, 1]]];
+  const delta = [[[1,1, 1], [0,2,-1], [0,1,-1]],
+                 [[0,2,-1], [1,2, 1], [0,0, 1]]];
 
   let state = 0, tape = [0], head = 0;
 
