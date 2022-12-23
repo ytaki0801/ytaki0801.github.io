@@ -20,7 +20,7 @@ async function draw() {
 
   let state = 0, tape = [0], head = 0;
 
-  space = 15;
+  space = 20;
   for (let step = 0; step < 200; step++) {
     const t = delta[state][tape[head]];
     state = t[0], tape[head] = t[1], head += t[2];
