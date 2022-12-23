@@ -29,9 +29,9 @@ async function draw() {
     } else if (head < 0) {
       tape.unshift(0), head++, space--;
     }
-    for (let n = 0; n < space; n++) {
+    for (let n = 0; n < space; n++) //{
       drawcell(n, step, 0, context);
-    }
+    //}
     for (let n = 0; n < tape.length; n++)
       drawcell(space + n, step, tape[n], context);
     await new Promise(r => setTimeout(r, 40));
