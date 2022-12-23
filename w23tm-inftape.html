@@ -5,7 +5,7 @@
     <script type="text/javascript">
 
 function drawcell(n, ny, c, ct) {
-  const w = document.getElementByName('pixel');
+  const w = document.getElementsByName("pixel");
   const x = 10 + n * w, y = 10 + ny * w;
   const dc = ['white', 'yellow', 'orange'];
 
@@ -14,8 +14,8 @@ function drawcell(n, ny, c, ct) {
 }
 
 async function draw() {
-  const canvas = document.getElementById('w23tm');
-  const context = canvas.getContext('2d');
+  const canvas = document.getElementById("w23tm");
+  const context = canvas.getContext("2d");
 
   delta = [[[1,1, 1], [0,2,-1], [0,1,-1]],
            [[0,2,-1], [1,2, 1], [0,0, 1]]];
