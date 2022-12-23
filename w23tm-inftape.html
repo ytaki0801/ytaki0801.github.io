@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+
+function drawcell(n, ny, c, ct) {
+  const w = 10;
+  const x = 10 + n * w, y = 10 + ny * w;
+  dc = ['white', 'yellow', 'orange'];
+  ct.fillStyle = dc[c];
+  ct.fillRect(x, y, w, w);
+}
+
+async function draw() {
+  const canvas = document.getElementById('sample');
+  const context = canvas.getContext('2d');
+
+  delta = [[[1,1, 1], [0,2,-1], [0,1,-1]],
+           [[0,2,-1], [1,2, 1], [0,0, 1]]];
+
+  let state = 0, tape = [0], head = 0;
+
+  space = 15;
+  for (let step = 0; step < 200; step++) {
+    const t = delta[state][tape[head]];
+    state = t[0], tape[head] = t[1], head += t[2];
+    if (head >= tape.length) {
+      tape.push(0);
+    } else if (head < 0) {
+      tape.unshift(0), head++, space--;
+    }
+    for (let n = 0; n < space; n++) {
+      drawcell(n, step, 0, context);
+    }
+    for (let n = 0; n < tape.length; n++) {
+      drawcell(space + n, step, tape[n], context);
+    }
+    await new Promise(r => setTimeout(r, 40));
+  }
+}
+
+    </script>
+  </head>
+<body onload="draw();">
+  <canvas id="sample" width="400" height="2000"></canvas>
+</body>
+
+</html>
