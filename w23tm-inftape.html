@@ -10,9 +10,10 @@
     <script type="text/javascript">
 
 function drawcell(n, ny, c, ct) {
-  const w = 10;
+  const w = Number(document.getElementsByName("pixel"));
   const x = 10 + n * w, y = 10 + ny * w;
   dc = ['white', 'yellow', 'orange'];
+
   ct.fillStyle = dc[c];
   ct.fillRect(x, y, w, w);
 }
@@ -26,8 +27,9 @@ async function draw() {
 
   let state = 0, tape = [0], head = 0;
 
-  space = 20;
-  for (let step = 0; step < 200; step++) {
+  const step_value = Number(document.getElementsByName("step"));
+  const space = 30;
+  for (let step = 0; step < step_value; step++) {
     const t = delta[state][tape[head]];
     state = t[0], tape[head] = t[1], head += t[2];
     if (head >= tape.length) {
@@ -48,8 +50,8 @@ async function draw() {
 <body>
   <form id="form">
     <input type="button" onclick="draw();" value="start">
-    <label>Pixel: <input type="text" name="pixel" placeholder="10">
-    <label>Step:  <input type="text" name="step"  placeholder="200">
+    <label>Pixel: <input type="text" name="pixel" size="5" placeholder="10">
+    <label>Step:  <input type="text" name="step"  size="5" placeholder="200">
     <div>
       <canvas id="w23tm" width="400" height="2000"></canvas>
     </div>
