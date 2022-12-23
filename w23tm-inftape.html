@@ -7,7 +7,16 @@
     <meta name="twitter:title" content="Wolfram (2,3) TM in JavaScript">
     <meta name="twitter:description" content="Wolfram's 2-state 3-symbol Turing Machine as an Universal Turing Machine written in JavaScript">
     <meta name="twitter:image" content="https://ytaki0801.github.io/TAKIZAWAYozo1.jpg">
-    <script type="text/javascript">
+  </head>
+
+<body>
+  <form id="form">
+    <input type="button" onclick="draw();" value="start">
+    <label>Pixel: <input type="text" name="pixel" size="5" placeholder="10">
+    <label>Step:  <input type="text" name="step"  size="5" placeholder="200">
+    <div><canvas id="w23tm" width="400" height="2000"></canvas></div>
+  </form>
+  <script type="text/javascript">
 
 function drawcell(n, ny, c, ct) {
   const w = Number(document.getElementsByName("pixel"));
@@ -45,17 +54,7 @@ async function draw() {
   }
 }
 
-    </script>
-  </head>
-<body>
-  <form id="form">
-    <input type="button" onclick="draw();" value="start">
-    <label>Pixel: <input type="text" name="pixel" size="5" placeholder="10">
-    <label>Step:  <input type="text" name="step"  size="5" placeholder="200">
-    <div>
-      <canvas id="w23tm" width="400" height="2000"></canvas>
-    </div>
-  </form>
+  </script>
 </body>
 
 </html>
