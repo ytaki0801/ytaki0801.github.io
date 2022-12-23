@@ -7,7 +7,8 @@
 function drawcell(n, ny, c, ct) {
   const w = document.getElementByName("pixel");
   const x = 10 + n * w, y = 10 + ny * w;
-  dc = ['white', 'yellow', 'orange'];
+  const dc = ['white', 'yellow', 'orange'];
+
   ct.fillStyle = dc[c];
   ct.fillRect(x, y, w, w);
 }
