@@ -5,7 +5,7 @@
     <script type="text/javascript">
 
 function drawcell(n, ny, c, ct) {
-  const w = Number(document.getElementsByName("pixel"));
+  const w = 10;
   const x = 10 + n * w, y = 10 + ny * w;
   const dc = ['white', 'yellow', 'orange'];
 
@@ -45,7 +45,6 @@ async function draw() {
   <body>
     <form id="form">
       <input type="button" onclick="draw();" value="start">
-      <input type="text" size="5" name="pixel" value="10">
       <div><canvas id="w23tm" width="400" height="2000"></canvas></div>
     </form>
   </body>
