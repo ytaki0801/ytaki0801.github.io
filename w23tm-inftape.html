@@ -19,7 +19,7 @@
   <script type="text/javascript">
 
 function drawcell(n, ny, c, ct) {
-  const w = document.getElementByName("pixel");
+  const w = 10; //document.getElementByName("pixel");
   const x = 10 + n * w, y = 10 + ny * w;
   dc = ['white', 'yellow', 'orange'];
 
@@ -36,7 +36,7 @@ async function draw() {
 
   let state = 0, tape = [0], head = 0;
 
-  const step_value = document.getElementByName("step");
+  const step_value = 200; //document.getElementByName("step");
   const space = 30;
   for (let step = 0; step < step_value; step++) {
     const t = delta[state][tape[head]];
