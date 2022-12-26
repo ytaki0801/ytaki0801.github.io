@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elementary Cellular Automaton in JavaScript</title>
+    <script type="text/javascript">
+
+async function draw() {
+  const ruleN = document.getElementsByName("rule").item(0).value;
+  const ruleS = Number(ruleN).toString(2).padStart(8, '0');
+  const rule = [[[,], [,]], [[,], [,]]];
+  rule[0][0][0] = ruleS[7];
+  rule[0][0][1] = ruleS[6];
+  rule[0][1][0] = ruleS[5];
+  rule[0][1][1] = ruleS[4];
+  rule[1][0][0] = ruleS[3];
+  rule[1][0][1] = ruleS[2];
+  rule[1][1][0] = ruleS[1];
+  rule[1][1][1] = ruleS[0];
+
+  const ct = document.getElementById("eca").getContext("2d");
+  ct.fillStyle = 'white';
+  ct.clearRect(0, 0, ct.canvas.clientWidth, ct.canvas.clientHeight);
+  ct.fillStyle = 'black';
+  const w = 2;
+
+  let cn = ct.canvas.clientWidth;
+  let cells = new Array(cn), cells2 = new Array(cn);
+  for (let c = 0; c < cn; c++) cells[c] = 0;
+  cells[Math.round(cn / 4)] = 1;
+
+  for (let gen = 1; gen < cn / (w * 2); gen++) {
+    for (let c = 0; c < cn; c++) {
+      const cl = c < 1 ? 0 : cells[c-1];
+      const cc = cells[c];
+      const cr = c > cn - 2 ? 0 : cells[c+1];
+      cells2[c] = rule[cl][cc][cr];
+    }
+    for (let n = 0; n < cn; n++) {
+      if (cells[n] == 1) ct.fillRect(n * w, gen * w, w, w);
+      cells[n] = cells2[n];
+    }
+    await new Promise(r => setTimeout(r, 40));
+  }
+}
+
+    </script>
+  </head>
+
+  <body>
+    <form id="form">
+      <label>
+        <input type="button" onclick="draw();" value="start">
+        Rule: <input type="text" size="5" name="rule"  value="90">
+      </label>
+      <div><canvas id="eca" width="1000" height="600"></canvas></div>
+    </form>
+  </body>
+
+</html>
