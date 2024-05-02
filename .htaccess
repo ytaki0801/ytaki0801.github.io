@@ -1,2 +1,2 @@
-RewriteEngine off
+RewriteEngine on
 RewriteRule https://ytaki0801.github.io/ https://lit.link/ytaki0801 [R=301,L]
