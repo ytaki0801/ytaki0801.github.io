@@ -10,7 +10,9 @@
 <meta name="twitter:image" content="https://ytaki0801.github.io/TAKIZAWAYozo1.jpg">
 <link rel="icon" href="TAKIZAWAYozo1.jpg">
 <link rel="icon" type="image/jpg" href="TAKIZAWAYozo1.jpg">
-<link rel="stylesheet" href="base.css" type="text/css" media="screen,tv">
+<style>
+  body { font-family: sans-serif; }
+</style>
 </head> 
  
 <body bgcolor="#ffffff"> 
