@@ -1,5 +1,5 @@
 # Additional information to stay in the dormitory
-Mon 25th May 2026
+Mon 25th May 2026 (revised at 26th May)
 
 ## Dormitory return time: 21:00
 Required to complete an overnight stay request in advance if you will be later
