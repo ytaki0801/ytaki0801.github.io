@@ -25,7 +25,7 @@ Required to complete a going-out request in advance if you will not in the campu
 - No refunds will be given for missed dormitory meals.
 
 ## Delivery to the dormitory
-- Deliveries to the dormitory are limited to weekday office pickup (08:30–17:00).
-- No delivery notifications will be issued by the dorm office. Pick up your items from the shelves outside the office.
-- Frozen food deliveries cannot be accepted for any reason.
+- Deliveries to the dormitory are accepted only on weekdays and must be collected from the dorm office between 08:30 and 17:00.
+- The dorm office does not provide delivery notifications. Please pick up your items at the office during the above hours.
+- Frozen food, fresh food, or Cash on Delivery (COD) shipments cannot be accepted under any circumstances.
 
