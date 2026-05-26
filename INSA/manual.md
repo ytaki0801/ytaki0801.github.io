@@ -5,7 +5,7 @@ Mon 25th May 2026 (Updated on 26th May)
 Required to complete an overnight stay request in advance if you will be later
 
 ## The second roll call at dormitory cafeteria
-### Except: Fri 22nd May to Tue 4th June, and, Mon 20th July to Sun 2nd Aug (including exam period)
+### Except: Fri 22nd May to Wed 3rd June, and, Mon 20th July to Sun 2nd Aug (including exam period)
 Around 21:10 for the women's dormitory
 
 Around 21:40 for the men's dormitory
