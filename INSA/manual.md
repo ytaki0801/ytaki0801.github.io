@@ -10,7 +10,7 @@ Around 21:10 for the women's dormitory
 
 Around 21:40 for the men's dormitory
 
-## The first roll call time using roomdoor plates: 19:30
+## The first roll call time using roomdoor/name plates: 19:30
 Required to complete a going-out request in advance if you will not in the campus at that time
 
 ## Dormitory cafeteria
