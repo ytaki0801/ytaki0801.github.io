@@ -1,5 +1,12 @@
 {
   "names": {
     "_": "926248e1a28c929c0b63ff0e0338c8db0741c5c7a2e2324c359b5a01c0d00550"
+  },
+  "relays": {
+    "926248e1a28c929c0b63ff0e0338c8db0741c5c7a2e2324c359b5a01c0d00550": [
+      "wss://yabu.me",
+      "wss://nos.lol",
+      "wss://nostr.mom"
+    ]
   }
 }
