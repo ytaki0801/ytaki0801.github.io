@@ -183,7 +183,7 @@ const BOOTSTRAP_RELAYS = [
 
 ];
 
-const TIMEOUT = 5000;
+const TIMEOUT = 8000;
 
 
 // ============================================================
@@ -662,8 +662,8 @@ function queryEvent(
         (resolve) => {
 
             let socket;
+
             let finished = false;
-            const events = [];
 
             const subscriptionId =
                 crypto.randomUUID();
@@ -671,42 +671,37 @@ function queryEvent(
             const timer =
                 setTimeout(
                     () => {
-                        finish();
+                        finish(null);
                     },
                     TIMEOUT
                 );
 
-            function finish()
+            function finish(event)
             {
                 if (finished) {
                     return;
                 }
 
                 finished = true;
+
                 clearTimeout(timer);
 
                 try {
+
                     if (
                         socket &&
-                        socket.readyState === WebSocket.OPEN
+                        socket.readyState
+                        === WebSocket.OPEN
                     ) {
+
                         socket.close();
                     }
+
                 }
                 catch (e) {
                 }
 
-                if (events.length === 0) {
-                    resolve(null);
-                    return;
-                }
-
-                events.sort(
-                    (a, b) =>
-                        b.created_at - a.created_at
-                );
-
-                resolve(events[0]);
+                resolve(event);
             }
 
             try {
@@ -720,17 +715,25 @@ function queryEvent(
                     () => {
 
                         const request = [
+
                             "REQ",
+
                             subscriptionId,
+
                             {
+
                                 authors: [
                                     pubkeyHex
                                 ],
+
                                 kinds: [
                                     kind
                                 ],
-                                limit: 20
+
+                                limit: 1
+
                             }
+
                         ];
 
                         socket.send(
@@ -746,23 +749,29 @@ function queryEvent(
                         let data;
 
                         try {
+
                             data =
                                 JSON.parse(
                                     message.data
                                 );
+
                         }
                         catch (e) {
+
                             return;
                         }
 
                         if (
                             !Array.isArray(data)
                         ) {
+
                             return;
                         }
 
                         if (
-                            data[0] === "EVENT" &&
+                            data[0]
+                            === "EVENT"
+                            &&
                             data.length >= 3
                         ) {
 
@@ -771,39 +780,50 @@ function queryEvent(
 
                             if (
                                 event &&
-                                typeof event.created_at === "number"
+                                event.created_at
                             ) {
-                                events.push(
-                                    event
-                                );
+
+                                finish(event);
                             }
+
                         }
                         else if (
-                            data[0] === "EOSE"
+                            data[0]
+                            === "EOSE"
                         ) {
-                            finish();
+
+                            finish(null);
                         }
+
                     };
 
                 socket.onerror =
                     () => {
-                        finish();
+
+                        finish(null);
+
                     };
 
                 socket.onclose =
                     () => {
+
                         if (!finished) {
-                            finish();
+                            finish(null);
                         }
+
                     };
 
             }
             catch (e) {
-                finish();
+
+                finish(null);
+
             }
+
         }
     );
 }
+
 
 // ============================================================
 // NIP-65 Kind 10002取得
@@ -813,32 +833,32 @@ async function fetchRelayList(
     pubkeyHex
 )
 {
-    const results =
-        await Promise.all(
-            BOOTSTRAP_RELAYS.map(
-                relay =>
-                    queryEvent(
-                        relay,
-                        pubkeyHex,
-                        10002
-                    )
-            )
-        );
-
     let newestEvent = null;
 
     for (
-        const event of results
+        const relay
+        of BOOTSTRAP_RELAYS
     ) {
+
+        const event =
+            await queryEvent(
+                relay,
+                pubkeyHex,
+                10002
+            );
+
         if (!event) {
             continue;
         }
 
         if (
-            newestEvent === null ||
-            event.created_at >
+            newestEvent === null
+            ||
+            event.created_at
+            >
             newestEvent.created_at
         ) {
+
             newestEvent =
                 event;
         }
@@ -847,25 +867,27 @@ async function fetchRelayList(
     if (
         newestEvent === null
     ) {
-        return [
-            ...BOOTSTRAP_RELAYS
-        ];
+
+        return BOOTSTRAP_RELAYS;
     }
 
     const relays = [];
 
     for (
-        const tag of
-        (
+        const tag
+        of (
             newestEvent.tags || []
         )
     ) {
 
         if (
-            !Array.isArray(tag) ||
-            tag.length < 2 ||
+            !Array.isArray(tag)
+            ||
+            tag.length < 2
+            ||
             tag[0] !== "r"
         ) {
+
             continue;
         }
 
@@ -873,31 +895,32 @@ async function fetchRelayList(
             tag[1];
 
         if (
-            typeof relay !== "string" ||
+            typeof relay !== "string"
+            ||
             !relay.startsWith("wss://")
         ) {
+
             continue;
         }
 
         if (
             !relays.includes(relay)
         ) {
-            relays.push(
-                relay
-            );
+
+            relays.push(relay);
         }
     }
 
     if (
-        relays.length === 0
+        relays.length > 0
     ) {
-        return [
-            ...BOOTSTRAP_RELAYS
-        ];
+
+        return relays;
     }
 
-    return relays;
+    return BOOTSTRAP_RELAYS;
 }
+
 
 // ============================================================
 // Kind 0プロフィール取得
@@ -908,32 +931,32 @@ async function fetchProfile(
     relays
 )
 {
-    const results =
-        await Promise.all(
-            relays.map(
-                relay =>
-                    queryEvent(
-                        relay,
-                        pubkeyHex,
-                        0
-                    )
-            )
-        );
-
     let newestEvent = null;
 
     for (
-        const event of results
+        const relay
+        of relays
     ) {
+
+        const event =
+            await queryEvent(
+                relay,
+                pubkeyHex,
+                0
+            );
+
         if (!event) {
             continue;
         }
 
         if (
-            newestEvent === null ||
-            event.created_at >
+            newestEvent === null
+            ||
+            event.created_at
+            >
             newestEvent.created_at
         ) {
+
             newestEvent =
                 event;
         }
@@ -942,6 +965,7 @@ async function fetchProfile(
     if (
         newestEvent === null
     ) {
+
         throw new Error(
             "Kind 0プロフィールを取得できませんでした。"
         );
@@ -950,12 +974,15 @@ async function fetchProfile(
     let profile;
 
     try {
+
         profile =
             JSON.parse(
                 newestEvent.content
             );
+
     }
     catch (e) {
+
         throw new Error(
             "Kind 0のcontentをJSONとして解析できません。"
         );
@@ -963,9 +990,11 @@ async function fetchProfile(
 
     if (
         !profile ||
-        typeof profile !== "object" ||
+        typeof profile !== "object"
+        ||
         Array.isArray(profile)
     ) {
+
         throw new Error(
             "プロフィールJSONの形式が不正です。"
         );
@@ -973,6 +1002,7 @@ async function fetchProfile(
 
     return profile;
 }
+
 
 // ============================================================
 // プロフィール値 → 表示文字列
