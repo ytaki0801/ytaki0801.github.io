@@ -971,7 +971,10 @@ async function fetchProfile(
         );
     }
 
-    return profile;
+    return {
+        profile: profile,
+        created_at: newestEvent.created_at
+    };
 }
 
 // ============================================================
