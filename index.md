@@ -1,18 +1,10 @@
-<!--
-<div class="h-card">
-  <p>TAKIZAWA Yozo</p>
-  <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="icon" width="150">
-  <link class="u-url" rel="me" href="/">
-</div>
--->
-
 ---
 layout: default
 title: ホーム
 ---
 
 <div class="h-card" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding: 1rem; border: 1px solid #eaeaea; border-radius: 8px;">
-  <img class="u-photo" src="/assets/images/avatar.jpg" alt="プロフィール画像" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+  <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="プロフィール画像" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
   <div>
     <h2 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
       <a class="u-url p-name" href="https://id.ytaki0801.jp/" style="text-decoration: none; color: inherit;">ytaki0801</a>
