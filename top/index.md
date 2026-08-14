@@ -44,7 +44,7 @@ PlayStation(`ytaki0801PS`)
 
 ## Other links and topics
 
-- topics.html
+- [links](topics.html)
 
 - Email address (obsoleted)
 ```
