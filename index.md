@@ -1,17 +1,16 @@
----
-layout: default
-title: Home
----
-
 <link rel="alternate" type="application/rss+xml" href="/feed.xml">
 <div class="h-card" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding: 1rem; border: 1px solid #eaeaea; border-radius: 8px;">
-  <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="プロフィール画像" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+  <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="icon" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
   <div>
     <h2 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
-      <a class="u-url p-name" href="https://id.ytaki0801.jp/" style="text-decoration: none; color: inherit;">ytaki0801</a>
-    </h2>
+      <a class="u-url p-name" href="/" style="text-decoration: none; color: inherit;">TAKIZAWA Yozo (滝沢 陽三)</a>
+   </h2>
     <p class="p-note" style="margin: 0; font-size: 0.9rem; color: #666;">
-      id.ytaki0801.jp
+      ytaki0801 (id.ytaki0801.jp)
+      📍Hitachinaka Ibaraki JAPAN
+      🏫National Institute of Technology (KOSEN),
+        Ibaraki College : 茨城高専教員
+      🏡Chikuma Nagano JAPAN : 長野県千曲市（旧更埴市）出身
     </p>
   </div>
 </div>
@@ -20,17 +19,6 @@ title: Home
 > Don't feel as if the key to successful computing is only in your hands.
 >
 > --- Alan J. Perlis, in [Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)
-
-## Basic Profile
-
-```
-TAKIZAWA Yozo : 滝沢 陽三
-
-📍Hitachinaka Ibaraki JAPAN : 茨城県ひたちなか市在住
-🏫National Institute of Technology (KOSEN),
-  Ibaraki College : 茨城高専教員
-🏡Chikuma Nagano JAPAN : 長野県千曲市（旧更埴市）出身
-```
 
 ## Social Media (`ytaki0801`)
 
