@@ -9,10 +9,15 @@ Alan J. Perlis, [Structure and Interpretation of Computer Programs](https://web.
 TAKIZAWA Yozo (滝沢 陽三)
 
 📍Hitachinaka Ibaraki JAPAN
+
   茨城県ひたちなか市在住
+
 🏫National Institute of Technology (KOSEN), Ibaraki College
+
   茨城高専教員
+
 🏡Chikuma Nagano JAPAN
+
   長野県千曲市（旧更埴市）出身
 
 ## 
