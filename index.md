@@ -2,9 +2,9 @@
 <div class="h-card" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding: 1rem; border: 1px solid #eaeaea; border-radius: 8px;">
   <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="icon" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
   <div>
-    <h2 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
+    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
       <a class="u-url p-name" href="/" style="text-decoration: none; color: inherit;">ytaki0801<br>id.ytaki0801.jp</a>
-   </h2>
+   </h3>
     <p class="p-note" style="margin: 0; font-size: 0.9rem; color: #666;">
       滝沢 陽三 (TAKIZAWA Yozo)<br>
       📍Hitachinaka Ibaraki JAPAN<br>
