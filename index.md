@@ -18,7 +18,9 @@
 >
 > --- Alan J. Perlis, in [Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)
 
-## Social Media (`ytaki0801`)
+## Social Media
+
+mostly `ytaki0801`
 
 ### Messaging tools
 
