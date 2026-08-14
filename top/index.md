@@ -1,4 +1,4 @@
-TAKIZAWA Yozo
+# TAKIZAWA Yozo
 
 > Don't feel as if the key to successful computing is only in your hands.
 > - Alan J. Perlis, [Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)
@@ -23,5 +23,6 @@ TAKIZAWA Yozo (滝沢 陽三)
 
 ### Messaging tools
 
-[OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
-
+[OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp),
+Google Chat (Gmail), Teams (Outlook),
+WhatsApp, Discord, Messanger, マシュマロ
