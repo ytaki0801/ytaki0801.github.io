@@ -29,7 +29,7 @@ X, Threads/Instagram/Facebook,
 [Nostr](https://nip05.ytaki0801.workers.dev/?id=id.ytaki0801.jp)(`id.ytaki0801.jp`),
 YouTube, TikTok, note, GitHub, researchmap
 
-#### rarely active
+#### (rarely active)
 
 Bluesky(`id.ytaki0801.jp`),
 Mastodon(@mstdn.jp)<link rel="me" href="https://mstdn.jp/@ytaki0801">,
