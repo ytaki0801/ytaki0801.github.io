@@ -17,7 +17,9 @@ TAKIZAWA Yozo (滝沢 陽三)
   長野県千曲市（旧更埴市）出身
 ```
 
-## Social Media (mostly `ytaki0801`)
+## Social Media
+
+(mostly `ytaki0801`)
 
 ### Messaging tools
 
