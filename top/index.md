@@ -65,5 +65,6 @@ takizawa(at)tsuyama-ct.ac.jp
 takizawa(at)cis.ibaraki.ac.jp
 ```
 
---
+---
+
 Copyright (C) 1992-2026 TAKIZAWA Yozo
