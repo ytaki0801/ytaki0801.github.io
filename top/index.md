@@ -22,3 +22,5 @@ TAKIZAWA Yozo (滝沢 陽三)
 
 ### Messaging tools
 
+[OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
+
