@@ -1,8 +1,10 @@
+<!--
 <div class="h-card">
   <p>TAKIZAWA Yozo</p>
   <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="icon" width="150">
   <link class="u-url" rel="me" href="/">
 </div>
+-->
 
 
 > Don't feel as if the key to successful computing is only in your hands.
@@ -71,3 +73,15 @@ takizawa(at)cis.ibaraki.ac.jp
 ---
 
 Copyright (C) 1992-2026 TAKIZAWA Yozo
+
+
+
+<div class="h-card">
+  <img class="u-photo" src="/.well-known/ytaki0801.jpg">
+  <p>TAKIZAWA Yozo</p>
+  <p>
+    <a class="u-url" rel="me" href="/">
+      id.ytaki0801.jp
+    </a>
+  </p>
+</div>
