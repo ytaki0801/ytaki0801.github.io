@@ -46,18 +46,20 @@ PlayStation(`ytaki0801PS`)
 
 - topics.html
 
-
-Email address (obsoleted)
-private:
+- Email address (obsoleted)
+```
+[private]
 y(at)nbk.bz
 you(at)nightbreak.org
 younightbreak(at)softbank.ne.jp
 younightbreak(at)wm.pdx.ne.jp
 you(at)e-mail.ne.jp
 kick(at)tenchi.ne.jp
-office:
+
+[office]
 takizawa(at)ece.ibaraki-ct.ac.jp
 takizawa(at)tsuyama-ct.ac.jp
-education:
-takizawa(at)cis.ibaraki.ac.jp
 
+[education]
+takizawa(at)cis.ibaraki.ac.jp
+```
