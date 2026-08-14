@@ -1,8 +1,9 @@
 ---
 layout: default
-title: ホーム
+title: Home
 ---
 
+<link rel="alternate" type="application/rss+xml" href="/feed.xml">
 <div class="h-card" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding: 1rem; border: 1px solid #eaeaea; border-radius: 8px;">
   <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="プロフィール画像" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
   <div>
