@@ -15,9 +15,7 @@ TAKIZAWA Yozo (滝沢 陽三)
 🏡Chikuma Nagano JAPAN (長野県千曲市（旧更埴市）出身)
 ```
 
-## Social Media
-
-(mostly `ytaki0801`)
+## Social Media (mostly `ytaki0801`)
 
 ### Messaging tools
 
@@ -40,3 +38,6 @@ Lemom8, tumblr, Quora("TAKIZAWA-Yozo"),
 mixi2, Snapchat, GRAVITY, Pinterest, ORCID
 
 ### Gamertags
+
+Xbox, Switch, Steam, Epic Games, EA, Riot Games,
+PlayStation(`ytaki0801PS`)
