@@ -7,7 +7,7 @@
    </h2>
     <p class="p-note" style="margin: 0; font-size: 0.9rem; color: #666;">
       <p>滝沢 陽三 (TAKIZAWA Yozo)</p>
-      <p>📍Hitachinaka Ibaraki JAPAN
+      <p>📍Hitachinaka Ibaraki JAPAN</p>
       <p>🏫National Institute of Technology (KOSEN), Ibaraki College</p>
       <p>🏡Chikuma Nagano JAPAN</p>
     </p>
