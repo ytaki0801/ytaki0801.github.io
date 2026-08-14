@@ -4,16 +4,15 @@
   <div>
     <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
       <a class="u-url p-name" href="/" style="text-decoration: none; color: inherit;">ytaki0801<br>id.ytaki0801.jp</a>
-   </h3>
+    </h3>
     <p class="p-note" style="margin: 0; font-size: 0.9rem; color: #666;">
       滝沢 陽三 (TAKIZAWA Yozo)<br>
       📍Hitachinaka Ibaraki JAPAN<br>
-      🏫National Institute of Technology (KOSEN), Ibaraki College<br>
+      🏫NIT (KOSEN) Ibaraki College<br>
       🏡Chikuma Nagano JAPAN
     </p>
   </div>
 </div>
-
 
 > Don't feel as if the key to successful computing is only in your hands.
 >
