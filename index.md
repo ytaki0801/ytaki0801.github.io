@@ -20,7 +20,7 @@
 
 ## Social Media
 
-mostly `ytaki0801`
+default handle: `ytaki0801`
 
 ### Messaging tools
 
