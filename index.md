@@ -1,6 +1,9 @@
 <div class="h-card">
-<img src="/.well-known/ytaki0801.jpg" alt="ytaki0801" width="150">
+  <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="icon" width="150">
+  <a class="u-url p-name" href="https://id.ytaki0801.jp/">TAKIZAWA Yozo</a>
 </div>
+<link rel="me" href="https://fed.brid.gy/">
+
 
 > Don't feel as if the key to successful computing is only in your hands.
 >
