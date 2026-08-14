@@ -6,6 +6,23 @@
 </div>
 -->
 
+---
+layout: default
+title: ホーム
+---
+
+<div class="h-card" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding: 1rem; border: 1px solid #eaeaea; border-radius: 8px;">
+  <img class="u-photo" src="/assets/images/avatar.jpg" alt="プロフィール画像" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+  <div>
+    <h2 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
+      <a class="u-url p-name" href="https://id.ytaki0801.jp/" style="text-decoration: none; color: inherit;">ytaki0801</a>
+    </h2>
+    <p class="p-note" style="margin: 0; font-size: 0.9rem; color: #666;">
+      id.ytaki0801.jp
+    </p>
+  </div>
+</div>
+
 
 > Don't feel as if the key to successful computing is only in your hands.
 >
@@ -74,14 +91,3 @@ takizawa(at)cis.ibaraki.ac.jp
 
 Copyright (C) 1992-2026 TAKIZAWA Yozo
 
-
-
-<div class="h-card">
-  <img class="u-photo" src="/.well-known/ytaki0801.jpg">
-  <p>TAKIZAWA Yozo</p>
-  <p>
-    <a class="u-url" rel="me" href="/">
-      id.ytaki0801.jp
-    </a>
-  </p>
-</div>
