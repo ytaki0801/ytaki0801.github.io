@@ -35,4 +35,8 @@ YouTube, TikTok, note, GitHub, researchmap
 
 Bluesky(`id.ytaki0801.jp`),
 Mastodon(@mstdn.jp)<link rel="me" href="https://mstdn.jp/@ytaki0801">,
-LinkedIn, Qiita, Zenn,
+LinkedIn, Qiita, Zenn, Twitch, Reddit,
+Lemom8, tumblr, Quora("TAKIZAWA-Yozo"),
+mixi2, Snapchat, GRAVITY, Pinterest, ORCID
+
+### 
