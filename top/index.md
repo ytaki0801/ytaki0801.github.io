@@ -47,6 +47,7 @@ PlayStation(`ytaki0801PS`)
 - [links](topics.html)
 
 - Email address (obsoleted)
+
 ```
 [private]
 y(at)nbk.bz
@@ -63,3 +64,6 @@ takizawa(at)tsuyama-ct.ac.jp
 [education]
 takizawa(at)cis.ibaraki.ac.jp
 ```
+
+--
+Copyright (C) 1992-2016 TAKIZAWA Yozo
