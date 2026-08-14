@@ -24,11 +24,18 @@ TAKIZAWA Yozo (滝沢 陽三)
 
 ### Messaging tools
 
-```
 [OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp),
 Google Chat (Gmail), Teams (Outlook),
 WhatsApp, Discord, Messanger, マシュマロ
-```
 
 ### SNS
+
+X, Threads/Instagram/Facebook,
+[Nostr](https://nip05.ytaki0801.workers.dev/?id=id.ytaki0801.jp)(`id.ytaki0801.jp`),
+YouTube, TikTok, note, GitHub, researchmap
+
+#### rarely active
+
+Bluesky(`id.ytaki0801.jp`),
+Mastodon(@mstdn.jp)<link rel="me" href="https://mstdn.jp/@ytaki0801">,
 
