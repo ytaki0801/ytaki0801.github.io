@@ -3,7 +3,7 @@
   <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="icon" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
   <div>
     <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
-      <a class="u-url p-name" href="/" style="text-decoration: none; color: inherit;">ytaki0801<br>id.ytaki0801.jp</a>
+      <a class="u-url p-name" href="/" style="text-decoration: none; color: inherit;">id.ytaki0801.jp</a>
     </h3>
     <p class="p-note" style="margin: 0; font-size: 0.9rem; color: #666;">
       滝沢 陽三 (TAKIZAWA Yozo)<br>
