@@ -1,6 +1,6 @@
 <div class="h-card">
   <img class="u-photo" src="/.well-known/ytaki0801.jpg" alt="icon" width="150">
-  <a class="u-url p-name" rel="me" href="https://id.ytaki0801.jp/"></a>
+  <a class="u-url" rel="me" href="/">TAKIZAWA Yozo</a>
 </div>
 
 
