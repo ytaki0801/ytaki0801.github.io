@@ -15,7 +15,7 @@ TAKIZAWA Yozo : 滝沢 陽三
 🏡Chikuma Nagano JAPAN : 長野県千曲市（旧更埴市）出身
 ```
 
-## Social Media (`ytaki0801`)
+## Social Media(`ytaki0801`)
 
 ### Messaging tools
 
@@ -56,11 +56,9 @@ younightbreak(at)softbank.ne.jp
 younightbreak(at)wm.pdx.ne.jp
 you(at)e-mail.ne.jp
 kick(at)tenchi.ne.jp
-
 [office]
 takizawa(at)ece.ibaraki-ct.ac.jp
 takizawa(at)tsuyama-ct.ac.jp
-
 [education]
 takizawa(at)cis.ibaraki.ac.jp
 ```
