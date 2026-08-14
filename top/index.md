@@ -1,3 +1,5 @@
+<img src="/.well-known/ytaki0801.jpg" alt="icon" width="150">
+
 # TAKIZAWA Yozo
 
 > Don't feel as if the key to successful computing is only in your hands.
@@ -15,7 +17,7 @@ TAKIZAWA Yozo : 滝沢 陽三
 🏡Chikuma Nagano JAPAN : 長野県千曲市（旧更埴市）出身
 ```
 
-## Social Media(`ytaki0801`)
+## Social Media (`ytaki0801`)
 
 ### Messaging tools
 
@@ -44,7 +46,7 @@ PlayStation(`ytaki0801PS`)
 
 ## Other links and topics
 
-- [links](topics.html)
+- [links](/topics.html)
 
 - Email address (obsoleted)
 
