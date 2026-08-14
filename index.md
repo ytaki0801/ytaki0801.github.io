@@ -1,4 +1,6 @@
-<img src="/.well-known/ytaki0801.jpg" alt="icon" width="150">
+<div class="h-card">
+<img src="/.well-known/ytaki0801.jpg" alt="ytaki0801" width="150">
+</div>
 
 > Don't feel as if the key to successful computing is only in your hands.
 >
@@ -31,7 +33,7 @@ YouTube, TikTok, note, GitHub, researchmap
 
 #### (rarely active)
 
-Bluesky(`id.ytaki0801.jp`),
+Bluesky(`id.ytaki0801.jp`)<link rel="me" href="https://bsky.app/profile/id.ytaki0801.jp">,
 Mastodon(@mstdn.jp)<link rel="me" href="https://mstdn.jp/@ytaki0801">,
 LinkedIn, Qiita, Zenn, Twitch, Reddit,
 Lemom8, tumblr, Quora(`TAKIZAWA-Yozo`),
