@@ -15,7 +15,7 @@ TAKIZAWA Yozo : 滝沢 陽三
 🏡Chikuma Nagano JAPAN : 長野県千曲市（旧更埴市）出身
 ```
 
-## Social Media : `ytaki0801` mostly
+## Social Media : mostly `ytaki0801`
 
 ### Messaging tools
 
@@ -41,3 +41,23 @@ mixi2, Snapchat, GRAVITY, Pinterest, ORCID
 
 Xbox, Switch, Steam, Epic Games, EA, Riot Games,
 PlayStation(`ytaki0801PS`)
+
+## Other links and topics
+
+- topics.html
+
+
+Email address (obsoleted)
+private:
+y(at)nbk.bz
+you(at)nightbreak.org
+younightbreak(at)softbank.ne.jp
+younightbreak(at)wm.pdx.ne.jp
+you(at)e-mail.ne.jp
+kick(at)tenchi.ne.jp
+office:
+takizawa(at)ece.ibaraki-ct.ac.jp
+takizawa(at)tsuyama-ct.ac.jp
+education:
+takizawa(at)cis.ibaraki.ac.jp
+
