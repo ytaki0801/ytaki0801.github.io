@@ -13,6 +13,7 @@
     </p>
   </div>
 </div>
+<link rel="shortcut icon" type="image/x-icon" href="/.well-known/ytaki0801.jpg">
 
 > "Don't feel as if the key to successful computing is only in your hands."
 >
