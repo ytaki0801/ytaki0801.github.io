@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pure Lisp Interpreter</title>
+<style>
+body{
+    font-family: monospace;
+    max-width: 1000px;
+    margin: 1em auto;
+    padding: 0 1em;
+}
+textarea{
+    width:100%;
+    height:16em;
+    font-family: monospace;
+}
+button{
+    margin-top:0.5em;
+    padding:0.5em 1em;
+}
+pre{
+    border:1px solid #ccc;
+    padding:1em;
+    overflow:auto;
+    white-space:pre-wrap;
+}
+</style>
+</head>
+<body>
+
+<h1>Pure Lisp Interpreter</h1>
+
+<textarea id="source">((lambda (x)
+   (cons x '(b c)))
+ 'a)</textarea>
+
+<br>
+<button id="run">Run</button>
+
+<h2>Result</h2>
+<pre id="output"></pre>
+
+<script>
+"use strict";
+
+/* =========================
+   Symbol
+   ========================= */
+
+class LispSymbol {
+    constructor(name){
+        this.name = name;
+    }
+}
+
+/* =========================
+   Pair
+   ========================= */
+
+class Pair {
+    constructor(car,cdr){
+        this.car = car;
+        this.cdr = cdr;
+    }
+}
+
+/* =========================
+   Closure
+   ========================= */
+
+class Closure {
+    constructor(params, body, env){
+        this.params = params;
+        this.body = body;
+        this.env = env;
+    }
+}
+
+/* =========================
+   Environment
+   ========================= */
+
+class Env {
+    constructor(parent=null){
+        this.parent = parent;
+        this.bindings = new Map();
+    }
+
+    define(name,value){
+        this.bindings.set(name,value);
+    }
+
+    lookup(name){
+        if(this.bindings.has(name)){
+            return this.bindings.get(name);
+        }
+
+        if(this.parent){
+            return this.parent.lookup(name);
+        }
+
+        throw new Error("Unbound symbol: " + name);
+    }
+}
+
+/* =========================
+   Tokenizer
+   ========================= */
+
+function tokenize(input){
+
+    input = input.replace(/'/g," ' ");
+
+    const tokens = [];
+
+    let i = 0;
+
+    while(i < input.length){
+
+        const ch = input[i];
+
+        if(/\s/.test(ch)){
+            i++;
+            continue;
+        }
+
+        if(ch === '(' || ch === ')' || ch === "'"){
+            tokens.push(ch);
+            i++;
+            continue;
+        }
+
+        let start = i;
+
+        while(
+            i < input.length &&
+            !/\s/.test(input[i]) &&
+            input[i] !== '(' &&
+            input[i] !== ')' &&
+            input[i] !== "'"
+        ){
+            i++;
+        }
+
+        tokens.push(input.slice(start,i));
+    }
+
+    return tokens;
+}
+
+/* =========================
+   Parser
+   ========================= */
+
+function parse(tokens){
+
+    let pos = 0;
+
+    function readExpr(){
+
+        if(pos >= tokens.length){
+            throw new Error("Unexpected EOF");
+        }
+
+        const token = tokens[pos++];
+
+        if(token === "("){
+
+            const list = [];
+
+            while(true){
+
+                if(pos >= tokens.length){
+                    throw new Error("Missing )");
+                }
+
+                if(tokens[pos] === ")"){
+                    pos++;
+                    break;
+                }
+
+                list.push(readExpr());
+            }
+
+            return list;
+        }
+
+        if(token === "'"){
+            return [
+                new LispSymbol("quote"),
+                readExpr()
+            ];
+        }
+
+        if(token === ")"){
+            throw new Error("Unexpected )");
+        }
+
+        return atom(token);
+    }
+
+    const expr = readExpr();
+
+    if(pos !== tokens.length){
+        throw new Error("Extra tokens");
+    }
+
+    return expr;
+}
+
+function atom(token){
+
+    if(token === "#t"){
+        return true;
+    }
+
+    if(token === "#f"){
+        return false;
+    }
+
+    if(/^-?\d+$/.test(token)){
+        return Number(token);
+    }
+
+    return new LispSymbol(token);
+}
+
+/* =========================
+   Conversion
+   ========================= */
+
+function arrayToList(arr){
+
+    let result = null;
+
+    for(let i = arr.length - 1; i >= 0; i--){
+        result = new Pair(arr[i], result);
+    }
+
+    return result;
+}
+
+function quoteToValue(expr){
+
+    if(Array.isArray(expr)){
+        return arrayToList(expr.map(quoteToValue));
+    }
+
+    return expr;
+}
+
+/* =========================
+   Evaluator
+   ========================= */
+
+function evalExpr(expr, env){
+
+    if(
+        typeof expr === "number" ||
+        typeof expr === "boolean" ||
+        expr === null
+    ){
+        return expr;
+    }
+
+    if(expr instanceof LispSymbol){
+        return env.lookup(expr.name);
+    }
+
+    if(!Array.isArray(expr)){
+        return expr;
+    }
+
+    if(expr.length === 0){
+        return null;
+    }
+
+    const first = expr[0];
+
+    if(first instanceof LispSymbol){
+
+        switch(first.name){
+
+            case "quote":
+                return quoteToValue(expr[1]);
+
+            case "if":{
+                const test = evalExpr(expr[1],env);
+
+                if(test !== false){
+                    return evalExpr(expr[2],env);
+                }
+
+                return evalExpr(expr[3],env);
+            }
+
+            case "lambda":{
+                const params =
+                    expr[1].map(p => p.name);
+
+                const body = expr[2];
+
+                return new Closure(
+                    params,
+                    body,
+                    env
+                );
+            }
+        }
+    }
+
+    const fn = evalExpr(first,env);
+
+    const args =
+        expr.slice(1)
+            .map(a => evalExpr(a,env));
+
+    return apply(fn,args);
+}
+
+/* =========================
+   Apply
+   ========================= */
+
+function apply(fn,args){
+
+    if(typeof fn === "function"){
+        return fn(...args);
+    }
+
+    if(fn instanceof Closure){
+
+        if(args.length !== fn.params.length){
+            throw new Error(
+                "Wrong number of arguments"
+            );
+        }
+
+        const local =
+            new Env(fn.env);
+
+        for(let i=0;i<args.length;i++){
+            local.define(
+                fn.params[i],
+                args[i]
+            );
+        }
+
+        return evalExpr(
+            fn.body,
+            local
+        );
+    }
+
+    throw new Error("Not a function");
+}
+
+/* =========================
+   Builtins
+   ========================= */
+
+const globalEnv = new Env();
+
+globalEnv.define(
+    "cons",
+    (a,d) => new Pair(a,d)
+);
+
+globalEnv.define(
+    "car",
+    p => {
+        if(!(p instanceof Pair)){
+            throw new Error("car");
+        }
+        return p.car;
+    }
+);
+
+globalEnv.define(
+    "cdr",
+    p => {
+        if(!(p instanceof Pair)){
+            throw new Error("cdr");
+        }
+        return p.cdr;
+    }
+);
+
+globalEnv.define(
+    "pair?",
+    x => x instanceof Pair
+);
+
+globalEnv.define(
+    "eq?",
+    (a,b) => {
+
+        if(
+            a instanceof Pair ||
+            b instanceof Pair
+        ){
+            return a === b;
+        }
+
+        if(
+            a instanceof LispSymbol &&
+            b instanceof LispSymbol
+        ){
+            return a.name === b.name;
+        }
+
+        return a === b;
+    }
+);
+
+globalEnv.define(
+    "len",
+    x => {
+
+        let n = 0;
+        let p = x;
+
+        while(p !== null){
+
+            if(!(p instanceof Pair)){
+                throw new Error(
+                    "len expects list"
+                );
+            }
+
+            n++;
+            p = p.cdr;
+        }
+
+        return n;
+    }
+);
+
+/* =========================
+   Printer
+   ========================= */
+
+function printValue(v){
+
+    if(v === null){
+        return "()";
+    }
+
+    if(v === true){
+        return "#t";
+    }
+
+    if(v === false){
+        return "#f";
+    }
+
+    if(typeof v === "number"){
+        return String(v);
+    }
+
+    if(v instanceof LispSymbol){
+        return v.name;
+    }
+
+    if(v instanceof Closure){
+        return "#<closure>";
+    }
+
+    if(v instanceof Pair){
+
+        const arr = [];
+
+        let p = v;
+
+        while(p instanceof Pair){
+            arr.push(
+                printValue(p.car)
+            );
+            p = p.cdr;
+        }
+
+        if(p === null){
+            return "(" +
+                arr.join(" ") +
+                ")";
+        }
+
+        return "(" +
+            arr.join(" ") +
+            " . " +
+            printValue(p) +
+            ")";
+    }
+
+    return String(v);
+}
+
+/* =========================
+   UI
+   ========================= */
+
+document
+.getElementById("run")
+.addEventListener("click",() => {
+
+    const source =
+        document
+        .getElementById("source")
+        .value;
+
+    const output =
+        document
+        .getElementById("output");
+
+    try{
+
+        const tokens =
+            tokenize(source);
+
+        const ast =
+            parse(tokens);
+
+        const result =
+            evalExpr(ast,globalEnv);
+
+        output.textContent =
+            printValue(result);
+
+    }
+    catch(err){
+        output.textContent =
+            "Error: " + err.message;
+    }
+});
+</script>
+
+</body>
+</html>
