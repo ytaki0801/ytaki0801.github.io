@@ -30,18 +30,19 @@ WhatsApp, Discord, Messanger, マシュマロ
 
 ### SNS
 
-X, Threads/Instagram/Facebook,
+X,<link rel="me" href="https://x.com/ytaki0801">
+Threads/Instagram/Facebook,
 [Nostr](https://nip05.ytaki0801.workers.dev/?id=id.ytaki0801.jp)(`id.ytaki0801.jp`),
 YouTube, TikTok, note, GitHub, researchmap
 
 #### (rarely active)
 
-Bluesky(`id.ytaki0801.jp`)
-<link rel="me" href="https://bsky.app/profile/id.ytaki0801.jp">,
-Mastodon(@mstdn.jp)
+Bluesky(`id.ytaki0801.jp`),
+<link rel="me" href="https://bsky.app/profile/id.ytaki0801.jp">
+Mastodon(@mstdn.jp),
 <link rel="me" href="https://mstdn.jp/@ytaki0801">
 <link rel="me" href="https://mstdn.jp/@id.ytaki0801.jp@bsky.brid.gy">
-<link rel="me" href="https://mstdn.jp/@id.ytaki0801.jp@web.brid.gy">,
+<link rel="me" href="https://mstdn.jp/@id.ytaki0801.jp@web.brid.gy">
 LinkedIn, Qiita, Zenn, Twitch, Reddit,
 Lemom8, tumblr, Quora(`TAKIZAWA-Yozo`),
 mixi2, Snapchat, GRAVITY, Pinterest, ORCID
