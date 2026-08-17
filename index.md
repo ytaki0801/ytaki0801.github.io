@@ -69,19 +69,29 @@ PlayStation(`ytaki0801PS`)
 - Email address (obsoleted)
 
 [private]
+
 ~~y(at)nbk.bz~~
+
 ~~you(at)nightbreak.org~~
+
 ~~younightbreak(at)softbank.ne.jp~~
+
 ~~younightbreak(at)wm.pdx.ne.jp~~
+
 ~~you(at)e-mail.ne.jp~~
+
 ~~kick(at)tenchi.ne.jp~~
+
 [office]
+
 ~~takizawa(at)ece.ibaraki-ct.ac.jp~~
+
 ~~takizawa(at)tsuyama-ct.ac.jp~~
+
 [education]
+
 ~~takizawa(at)cis.ibaraki.ac.jp~~
 
 ---
 
 Copyright (C) 1992-2026 TAKIZAWA Yozo
-
