@@ -62,7 +62,11 @@ PlayStation(`ytaki0801PS`)
 
 ## Other links and topics
 
-- [links](/topics.html)
+- [PureLISP.sh](https://github.com/ytaki0801/PureLISP.sh)
+([Zenn article](https://zenn.dev/ytaki0801/articles/c396e3c7d46d0f00ac90)
+: obsoleted)
+
+- [topics](/topics.html)
 
 - Email address (obsoleted)
 
