@@ -33,8 +33,8 @@ WhatsApp, Discord, Messenger, マシュマロ
 
 X, Threads/Instagram/Facebook,
 Bluesky(`id.ytaki0801.jp`), Mastodon(@mstdn.jp),
-YouTube, TikTok,
 [Nostr](https://nip05.ytaki0801.workers.dev/?id=id.ytaki0801.jp)(`id.ytaki0801.jp`),
+YouTube, TikTok,
 note, GitHub, researchmap
 <link rel="me" href="https://x.com/ytaki0801">
 <link rel="me" href="https://www.threads.com/@ytaki0801">
@@ -62,7 +62,7 @@ PlayStation(`ytaki0801PS`)
 
 ## Other links and topics
 
-- [PureLISP.sh] (https://github.com/ytaki0801/PureLISP.sh)([Zenn article](https://zenn.dev/ytaki0801/articles/c396e3c7d46d0f00ac90): obsoleted)
+- [PureLISP.sh](https://github.com/ytaki0801/PureLISP.sh) ([Zenn article](https://zenn.dev/ytaki0801/articles/c396e3c7d46d0f00ac90): obsoleted)
 
 - [other topics](/topics.html)
 
