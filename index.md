@@ -62,26 +62,24 @@ PlayStation(`ytaki0801PS`)
 
 ## Other links and topics
 
-- [PureLISP.sh](https://github.com/ytaki0801/PureLISP.sh)([Zenn article](https://zenn.dev/ytaki0801/articles/c396e3c7d46d0f00ac90): obsoleted)
+- [PureLISP.sh] (https://github.com/ytaki0801/PureLISP.sh)([Zenn article](https://zenn.dev/ytaki0801/articles/c396e3c7d46d0f00ac90): obsoleted)
 
-- [topics](/topics.html)
+- [other topics](/topics.html)
 
 - Email address (obsoleted)
 
-```
 [private]
-y(at)nbk.bz
-you(at)nightbreak.org
-younightbreak(at)softbank.ne.jp
-younightbreak(at)wm.pdx.ne.jp
-you(at)e-mail.ne.jp
-kick(at)tenchi.ne.jp
+~~y(at)nbk.bz~~
+~~you(at)nightbreak.org~~
+~~younightbreak(at)softbank.ne.jp~~
+~~younightbreak(at)wm.pdx.ne.jp~~
+~~you(at)e-mail.ne.jp~~
+~~kick(at)tenchi.ne.jp~~
 [office]
-takizawa(at)ece.ibaraki-ct.ac.jp
-takizawa(at)tsuyama-ct.ac.jp
+~~takizawa(at)ece.ibaraki-ct.ac.jp~~
+~~takizawa(at)tsuyama-ct.ac.jp~~
 [education]
-takizawa(at)cis.ibaraki.ac.jp
-```
+~~takizawa(at)cis.ibaraki.ac.jp~~
 
 ---
 
