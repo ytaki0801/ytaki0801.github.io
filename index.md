@@ -25,9 +25,10 @@ default handle: **`ytaki0801`**
 
 ### Messaging tools
 
-[OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp),
+[マシュマロ](https://marshmallow-qa.com/ytaki0801),
 Google Chat (Gmail), Teams (Outlook),
-WhatsApp, Discord, Messenger, マシュマロ
+WhatsApp, Discord, Messenger,
+[OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
 
 ### SNS
 
