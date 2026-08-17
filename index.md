@@ -27,7 +27,7 @@ default handle: **`ytaki0801`**
 
 [OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp),
 Google Chat (Gmail), Teams (Outlook),
-WhatsApp, Discord, Messanger, マシュマロ
+WhatsApp, Discord, Messenger, マシュマロ
 
 ### SNS
 
