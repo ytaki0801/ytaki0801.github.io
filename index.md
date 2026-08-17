@@ -51,7 +51,7 @@ note, GitHub, researchmap
 #### (rarely active)
 
 LinkedIn, Qiita, Zenn, Twitch, Reddit,
-Lemom8, tumblr, Quora(`TAKIZAWA-Yozo`),
+Lemon8, tumblr, Quora(`TAKIZAWA-Yozo`),
 mixi2, Snapchat, GRAVITY, Pinterest, ORCID
 <link rel="me" href="https://orcid.org/0009-0008-0518-9208">
 
@@ -74,7 +74,7 @@ PlayStation(`ytaki0801PS`)
 ~~younightbreak(at)softbank.ne.jp~~  
 ~~younightbreak(at)wm.pdx.ne.jp~~  
 ~~you(at)e-mail.ne.jp~~  
-~~kick(at)tenchi.ne.jp~~
+~~kick(at)tenchi.ne.jp~~  
 [office]  
 ~~takizawa(at)ece.ibaraki-ct.ac.jp~~  
 ~~takizawa(at)tsuyama-ct.ac.jp~~  
@@ -84,3 +84,4 @@ PlayStation(`ytaki0801PS`)
 ---
 
 Copyright (C) 1992-2026 TAKIZAWA Yozo
+
