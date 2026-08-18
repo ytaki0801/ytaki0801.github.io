@@ -48,6 +48,7 @@ note, GitHub, researchmap
 <link rel="me" href="https://www.facebook.com/ytaki0801">
 <link rel="me" href="https://bsky.app/profile/id.ytaki0801.jp">
 <link rel="me" href="https://mstdn.jp/@ytaki0801">
+<link rel="me" href="nostr:npub1jf3y3cdz3jffczmrlu8qxwxgmvr5r3w85t3rynp4nddqrsxsq4gqq8nmn0">
 <link rel="me" href="https://youtube.com/@ytaki0801">
 <link rel="me" href="https://www.tiktok.com/@ytaki0801">
 <link rel="me" href="https://note.com/ytaki0801">
