@@ -25,9 +25,13 @@ default handle: **`ytaki0801`**
 
 ### Messaging tools
 
-[OpenPGP Public Key](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp),
 Google Chat (Gmail), Teams (Outlook),
-WhatsApp, Discord, Messenger,
+WhatsApp, Discord, Messenger
+
+OpenPGP Public Key:
+[Web Key Directory](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
+or
+[GitHub](https://github.com/ytaki0801.gpg)
 
 #### Ask service
 [Marshmallow](https://marshmallow-qa.com/ytaki0801),
