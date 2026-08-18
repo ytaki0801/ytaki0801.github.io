@@ -28,7 +28,7 @@ default handle: **`ytaki0801`**
 Google Chat (Gmail), Teams (Outlook),
 WhatsApp, Discord, Messenger
 
-[OpenPGP Public Key]
+**OpenPGP Public Key**
 [Web Key Directory](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
 or
 [GitHub](https://github.com/ytaki0801.gpg)
