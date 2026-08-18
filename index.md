@@ -41,7 +41,7 @@ or
 
 X, Threads/Instagram/Facebook,
 Bluesky(`id.ytaki0801.jp`), Mastodon(@mstdn.jp),
-[Nostr](https://nip05.ytaki0801.workers.dev/?id=id.ytaki0801.jp)(`id.ytaki0801.jp`),
+[Nostr](https://nosread.ytaki0801.workers.dev/)(`id.ytaki0801.jp`),
 YouTube, TikTok,
 note, GitHub, researchmap
 <link rel="me" href="https://x.com/ytaki0801">
