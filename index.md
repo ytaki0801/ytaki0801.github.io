@@ -28,14 +28,14 @@ default handle: **`ytaki0801`**
 Google Chat (Gmail), Teams (Outlook),
 WhatsApp, Discord, Messenger
 
-#### Ask services
+**Ask services:**
 [Marshmallow](https://marshmallow-qa.com/ytaki0801),
 [note question box](https://note.com/qa/ytaki0801)
 
-#### OpenPGP Public Key
-[Web Key Directory](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
-or
+**OpenPGP Public Key:**
 [GitHub](https://github.com/ytaki0801.gpg)
+or
+[Web Key Directory](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
 
 ### SNS
 
