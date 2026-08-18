@@ -41,7 +41,7 @@ X, Threads/Instagram/Facebook,
 Bluesky(`id.ytaki0801.jp`), Mastodon(@mstdn.jp),
 [Nostr](https://nosread.ytaki0801.workers.dev/)(`id.ytaki0801.jp`),
 YouTube, TikTok,
-note, GitHub, researchmap
+note, GitHub, researchmap  
 <link rel="me" href="https://x.com/ytaki0801">
 <link rel="me" href="https://www.threads.com/@ytaki0801">
 <link rel="me" href="https://www.instagram.com/ytaki0801">
@@ -54,9 +54,7 @@ note, GitHub, researchmap
 <link rel="me" href="https://note.com/ytaki0801">
 <link rel="me" href="https://github.com/ytaki0801">
 <link rel="me" href="https://researchmap.jp/ytaki0801">
-
-#### (rarely active)
-
+*(rarely active)**  
 LinkedIn, Qiita, Zenn, Twitch, Reddit,
 Lemon8, tumblr, Quora(`TAKIZAWA-Yozo`),
 mixi2, Snapchat, GRAVITY, Pinterest, ORCID
