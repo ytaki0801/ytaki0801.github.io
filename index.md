@@ -26,12 +26,10 @@ default handle: **`ytaki0801`**
 ### Messaging tools
 
 Google Chat (Gmail), Teams (Outlook),
-WhatsApp, Discord, Messenger
-
+WhatsApp, Discord, Messenger  
 **Ask services:**
 [Marshmallow](https://marshmallow-qa.com/ytaki0801),
-[note question box](https://note.com/qa/ytaki0801)
-
+[note question box](https://note.com/qa/ytaki0801)  
 **OpenPGP Public Key:**
 [GitHub](https://github.com/ytaki0801.gpg)
 or
