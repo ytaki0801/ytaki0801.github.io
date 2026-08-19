@@ -88,5 +88,6 @@ PlayStation(`ytaki0801PS`)
 ~~takizawa(at)cis.ibaraki.ac.jp~~
 
 ---
+AE4E 532F 2FF0 6EEB AF2B  0F07 5440 F590 3267 EE39
 
 Copyright (C) 1992-2026 TAKIZAWA Yozo
