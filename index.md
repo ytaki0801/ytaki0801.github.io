@@ -21,7 +21,7 @@
 
 ## Social Media
 
-default handle: **`ytaki0801`**
+default handle: [**`ytaki0801`**](https://www.google.com/search?q=ytaki0801)
 
 ### Messaging tools
 
