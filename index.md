@@ -43,7 +43,7 @@ Bluesky(`id.ytaki0801.jp`), Mastodon(@mstdn.jp),
 YouTube, TikTok, note,
 GitHub([SSH Public Key](https://github.com/ytaki0801.keys)),
 researchmap  
-*(rarely active)**  
+**(rarely active)**  
 LinkedIn, Qiita, Zenn, Twitch, Reddit,
 Lemon8, tumblr, Quora(`TAKIZAWA-Yozo`),
 mixi2, Snapchat, GRAVITY, Pinterest, ORCID
