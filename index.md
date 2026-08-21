@@ -35,7 +35,7 @@ WhatsApp, Discord, Messenger
 or 
 [Web Key Directory (WKD)](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp) 
 or 
-[keys.openpgp.org](https://keys.openpgp.org/)
+[keys.openpgp.org](https://keys.openpgp.org/search?q=AE4E+532F+2FF0+6EEB+AF2B+++0F07+5440+F590+3267+EE39)
 
 ### SNS
 
