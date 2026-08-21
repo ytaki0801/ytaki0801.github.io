@@ -33,7 +33,9 @@ WhatsApp, Discord, Messenger
 **OpenPGP Public Key:**  
 [GitHub](https://github.com/ytaki0801.gpg)
 or
-[keys.openpgp.org](https://keys.openpgp.org/search?q=AE4E532F2FF06EEBAF2B0F075440F5903267EE39)
+[Web Key Directory](`gpg --locate-keys [email address]`)
+/
+[keys.openpgp.org](https://keys.openpgp.org/)
 
 ### SNS
 
