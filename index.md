@@ -42,9 +42,7 @@ or
 X, Threads/Instagram/Facebook,
 Bluesky(`id.ytaki0801.jp`), Mastodon(@mstdn.jp),
 [Nostr](https://nosread.ytaki0801.workers.dev/)(`id.ytaki0801.jp`),
-YouTube, TikTok, note,
-GitHub([SSH Public Key](https://github.com/ytaki0801.keys)),
-researchmap, ORCID  
+YouTube, TikTok, note, GitHub, researchmap, ORCID  
 **(rarely active)**  
 LinkedIn, Qiita, Zenn, Twitch, Reddit,
 Lemon8, tumblr, Quora(`TAKIZAWA-Yozo`),
