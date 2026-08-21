@@ -33,7 +33,7 @@ WhatsApp, Discord, Messenger
 **OpenPGP Public Key:**  
 [GitHub](https://github.com/ytaki0801.gpg)
 or
-[Web Key Directory](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp)
+[keys.openpgp.org](https://keys.openpgp.org/search?q=AE4E532F2FF06EEBAF2B0F075440F5903267EE39)
 
 ### SNS
 
