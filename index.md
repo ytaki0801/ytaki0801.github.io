@@ -90,6 +90,7 @@ PlayStation(`ytaki0801PS`)
 ~~takizawa(at)cis.ibaraki.ac.jp~~
 
 ---
+[`index.md` OpenPGP clearsigned](index.md.asc)
 <!-- OpenPGP Public Key Fingerprint -->
 ```
 AE4E 532F 2FF0 6EEB AF2B  
