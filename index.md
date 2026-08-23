@@ -21,7 +21,17 @@
 
 ## Social Media
 
-default handle: [**`ytaki0801`**](https://www.google.com/search?q=ytaki0801)
+**default handle:** [`ytaki0801`](https://www.google.com/search?q=ytaki0801)  
+**OpenPGP Public Key Fingerprint**  
+`AE4E 532F 2FF0 6EEB AF2B`  
+`0F07 5440 F590 3267 EE39`
+<!--
+[GitHub](https://github.com/ytaki0801.gpg) 
+or 
+[Web Key Directory (WKD)](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp) 
+or 
+[keys.openpgp.org](https://keys.openpgp.org/search?q=AE4E+532F+2FF0+6EEB+AF2B+++0F07+5440+F590+3267+EE39)
+-->
 
 ### Messaging tools
 
@@ -30,17 +40,6 @@ WhatsApp, Discord, Messenger
 **Ask services:**  
 [Marshmallow](https://marshmallow-qa.com/ytaki0801),
 [note question box](https://note.com/qa/ytaki0801)  
-**OpenPGP Public Key Fingerprint**  
-`AE4E 532F 2FF0 6EEB AF2B`  
-`0F07 5440 F590 3267 EE39`
-
-<!--
-[GitHub](https://github.com/ytaki0801.gpg) 
-or 
-[Web Key Directory (WKD)](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp) 
-or 
-[keys.openpgp.org](https://keys.openpgp.org/search?q=AE4E+532F+2FF0+6EEB+AF2B+++0F07+5440+F590+3267+EE39)
--->
 
 ### SNS
 
@@ -93,7 +92,4 @@ PlayStation(`ytaki0801PS`)
 ~~takizawa(at)cis.ibaraki.ac.jp~~
 
 ---
-[PGP signed `index.md`](index.md.asc)
-
-
 Copyright (C) 1992-2026 TAKIZAWA Yozo
