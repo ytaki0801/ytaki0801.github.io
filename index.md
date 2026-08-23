@@ -31,11 +31,14 @@ WhatsApp, Discord, Messenger
 [Marshmallow](https://marshmallow-qa.com/ytaki0801),
 [note question box](https://note.com/qa/ytaki0801)  
 **OpenPGP Public Key:**  
+GitHub or Web Key Directory (WKD) or keys.openpgp.org
+<!--
 [GitHub](https://github.com/ytaki0801.gpg) 
 or 
 [Web Key Directory (WKD)](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp) 
 or 
 [keys.openpgp.org](https://keys.openpgp.org/search?q=AE4E+532F+2FF0+6EEB+AF2B+++0F07+5440+F590+3267+EE39)
+-->
 
 ### SNS
 
