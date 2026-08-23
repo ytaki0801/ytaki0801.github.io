@@ -31,10 +31,9 @@ WhatsApp, Discord, Messenger
 [Marshmallow](https://marshmallow-qa.com/ytaki0801),
 [note question box](https://note.com/qa/ytaki0801)  
 **OpenPGP Public Key Fingerprint**  
-```
-AE4E 532F 2FF0 6EEB AF2B  
-0F07 5440 F590 3267 EE39
-```
+`AE4E 532F 2FF0 6EEB AF2B`  
+`0F07 5440 F590 3267 EE39`
+
 <!--
 [GitHub](https://github.com/ytaki0801.gpg) 
 or 
