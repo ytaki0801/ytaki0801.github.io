@@ -93,5 +93,7 @@ or
 [Web Key Directory (WKD)](https://wkd.ytaki0801.workers.dev/?id=id@ytaki0801.jp) 
 or 
 [keys.openpgp.org](https://keys.openpgp.org/search?q=AE4E+532F+2FF0+6EEB+AF2B+++0F07+5440+F590+3267+EE39)
+or 
+[this site](https://id.ytaki0801.jp/AE4E532F2FF06EEBAF2B0F075440F5903267EE39.key)
 -->
 Copyright (C) 1992-2026 TAKIZAWA Yozo
