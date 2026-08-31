@@ -83,9 +83,9 @@ PlayStation(`ytaki0801PS`)
 
 ---
 OpenPGP Public Key Fingerprint
-<link rel="me" href="openpgp4fpr:AE4E532F2FF06EEBAF2B0F075440F5903267EE39">  
 `AE4E 532F 2FF0 6EEB AF2B`  
 `0F07 5440 F590 3267 EE39`
+<link rel="me" href="openpgp4fpr:AE4E532F2FF06EEBAF2B0F075440F5903267EE39">
 <link rel="me" href="https://keyoxide.org/AE4E532F2FF06EEBAF2B0F075440F5903267EE39">
 <!--
 [GitHub](https://github.com/ytaki0801.gpg) 
