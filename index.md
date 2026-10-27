@@ -35,8 +35,9 @@ WhatsApp, Discord, Messenger
 
 X, Threads/Instagram/Facebook,
 Bluesky(`id.ytaki0801.jp`), Mastodon(@mstdn.jp),
-[Nostr](https://nosread.ytaki0801.workers.dev/)(`id.ytaki0801.jp`),
-YouTube, TikTok, note, GitHub, researchmap, ORCID  
+[Nostr](https://nostter.app/id.ytaki0801.jp)(`id.ytaki0801.jp`),
+YouTube, TikTok, [stand.fm](https://stand.fm/channels/6ae0b1c7c442443d8802dcec),
+note, GitHub, researchmap, ORCID  
 **(rarely active)**  
 LinkedIn, Qiita, Zenn, Twitch, Reddit,
 Lemon8, tumblr, Quora(`TAKIZAWA-Yozo`),
