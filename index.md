@@ -34,7 +34,7 @@ WhatsApp, Discord, Messenger
 ### SNS
 
 X, Threads/Instagram/Facebook,
-Bluesky(`id.ytaki0801.jp`), Mastodon(@mstdn.jp),
+Bluesky, Mastodon(@mstdn.jp),
 [Nostr](https://nostter.app/id.ytaki0801.jp)(`id.ytaki0801.jp`),
 YouTube, TikTok, [stand.fm](https://stand.fm/channels/6ae0b1c7c442443d8802dcec),
 note, GitHub, researchmap, ORCID  
